@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="pl" data-ng-app="myApp" data-ng-controller="myCtrl">
     <link rel="stylesheet" href="css/font-awesome.css">
-
-      <script src="js/lib/jquery-3.1.0.min.js" ></script>
-
-
-      <script src="js/lib/bootstrap.min.js" ></script>
-      <link rel="stylesheet" href="css/bootstrap.min.css" >
-
+    <script src="js/lib/jquery-3.1.0.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-
     <meta name="viewport" content="width=device-width, initial-scale=5">
     <meta charset="UTF-8">
-
-    <title>LOL</title>
+    <title>Oferta</title>
 </head>
 
 <body>
@@ -47,12 +41,12 @@
         </div>
     </article>
     <article class="col-xs-12 no-padding">
-        <section class="col-xs-12">
+        <section class="col-xs-12 no-padding">
             <input data-ng-model='content.offerCalculationPerReceiverPointSet' type="checkbox" ng-change='changeSettingsCheckbox()'>
             Ustaw parametry oferty odzielnie dla każdego punktu odbioru
         </section>
     </article>
-<!-- lość Stref for all Punct Odbioru-->
+    <!-- lość Stref for all Punct Odbioru-->
     <article class="col-xs-12 no-padding" ng-show='content.receiverPointList.length>=1 && content.offerCalculationPerReceiverPointSet==false'>
         <section class="col-xs-2 no-padding">
             <label>lość Stref:</label>
@@ -65,7 +59,6 @@
             <span class="btn btn-default glyphicon glyphicon-minus" ng-disabled="disableFirstSection" aria-hidden="true" data-ng-click='disableFirstSection || deleteNumberOfZones($index)'></span>
         </section>
     </article>
-
 
     <article class="punct-item" data-ng-repeat='receiverPointList in content.receiverPointList'>
         <nav class="navbar navbar-default">
@@ -717,7 +710,6 @@
 <script src="js/lib/angular.min.js"></script>
 <script src="js/lib/angular-animate.min.js"></script>
 <script src="js/services/angular-modal-service.js"></script>
-
 
 <script src="js/app.js"></script>
 <script src='js/controllers/yesnocontroller.js'></script>
