@@ -37,6 +37,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         $scope.sendData = function() {
             $scope.offerStorageId=null;
             convertDateFromObject();
+            console.log($scope.content);
             $http(reqPostSave).then(function() {
                 console.log('s');
 
