@@ -40,7 +40,15 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
             $scope.content.offerStorageId=null;
             convertDateFromObject();
             console.log($scope.content);
-            $http(reqPostSave).success(function(response){
+            $http({
+              method: 'POST',
+              dataType: 'json',
+              url: 'https://easy-energy.herokuapp.com/a/electricityOffer.json',
+              data: $scope.content,
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+            }).success(function(response){
                     $scope.response = response;
                 }).error(function(error){
                     $scope.error = error;
