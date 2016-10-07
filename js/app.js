@@ -3,7 +3,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
 
         var reqGet = {
             method: 'GET',
-            url: './data/punct.json',
+            url: 'https://easy-energy.herokuapp.com/a/electricityOffer/1.json',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             }
