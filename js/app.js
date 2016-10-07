@@ -17,7 +17,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         $scope.sendData = function() {
             $scope.content.offerStorageId = null;
             convertDateFromObject();
-
+            $scope.myJSON=angular.toJson($scope.content);
             $http({
                 method: 'POST',
                 dataType: 'json',
