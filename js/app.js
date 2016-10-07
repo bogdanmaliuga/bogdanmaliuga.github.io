@@ -35,14 +35,16 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
 
 
         $scope.sendData = function() {
+            $scope.offerStorageId=null;
+            convertDateFromObject();
             $http(reqPostSave).then(function() {
-                    convertDateFromObject();
-                    
+
+
                 },
                 function() {
-                    convertDate();
-                });
 
+                });
+                convertDate();
         };
 
         $scope.sendCalculation = function() {
