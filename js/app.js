@@ -15,14 +15,14 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
 
         //POST DATA
         $scope.sendData = function() {
-            $scope.content.offerStorageId = null;
+
             convertDateFromObject();
             $scope.myJSON=angular.toJson($scope.content);
             $http({
                 method: 'POST',
                 dataType: 'json',
                 url: 'https://easy-energy.herokuapp.com/a/electricityOffer.json',
-                data: $scope.myJSON,
+                data: angular.toJson($scope.content),
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -37,12 +37,12 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         $scope.sendCalculation = function() {
 
             convertDateFromObject();
-
+            $scope.myJSON2=angular.toJson($scope.content);
             $http({
                 method: 'POST',
                 dataType: 'json',
                 url: 'https://easy-energy.herokuapp.com/a/CalculateElectricityOffer',
-                data: $scope.content,
+                data: angular.toJson($scope.content),
                 headers: {
                     'Content-Type': 'application/json'
                 }
