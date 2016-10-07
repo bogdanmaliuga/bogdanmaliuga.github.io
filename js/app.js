@@ -11,6 +11,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         };
         var reqPostCalculation = {
             method: 'POST',
+            dataType: 'json',
             url: 'https://easy-energy.herokuapp.com/a/CalculateElectricityOffer',
             data: $scope.content,
             headers: {
@@ -19,6 +20,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         };
         var reqPostSave = {
             method: 'POST',
+            dataType: 'json',
             url: 'https://easy-energy.herokuapp.com/a/electricityOffer.json',
             data: $scope.content,
             headers: {
@@ -38,23 +40,25 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
             $scope.content.offerStorageId=null;
             convertDateFromObject();
             console.log($scope.content);
-            $http(reqPostSave).then(function() {
-                console.log('s');
-
-                },
-                function() {
-                  console.log('b');
+            $http(reqPostSave).success(function(response){
+                    $scope.response = response;
+                }).error(function(error){
+                    $scope.error = error;
                 });
-                convertDate();
+            convertDate();
         };
 
         $scope.sendCalculation = function() {
-            $http(reqPostCalculation).then(function() {
-                    convertDateFromObject();
-                },
-                function() {
-                    convertDate();
-                });
+
+          convertDateFromObject();
+
+          $http(reqPostCalculation).success(function(response){
+                  $scope.response = response;
+              }).error(function(error){
+                  $scope.error = error;
+              });
+          convertDate();
+
 
         };
 
