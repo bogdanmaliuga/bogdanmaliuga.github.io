@@ -11,7 +11,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         };
         var reqPostCalculation = {
             method: 'POST',
-            url: 'http://easy-energy.herokuapp.com/a/CalculateElectricityOffer',
+            url: 'https://easy-energy.herokuapp.com/a/CalculateElectricityOffer',
             data: $scope.content,
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -19,7 +19,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         };
         var reqPostSave = {
             method: 'POST',
-            url: 'http://easy-energy.herokuapp.com/a/electricityOffer',
+            url: 'https://easy-energy.herokuapp.com/a/electricityOffer',
             data: $scope.content,
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
