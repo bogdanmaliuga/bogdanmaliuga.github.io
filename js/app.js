@@ -22,7 +22,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
                 method: 'POST',
                 dataType: 'json',
                 url: 'https://easy-energy.herokuapp.com/a/electricityOffer.json',
-                data: $scope.content,
+                data: $scope.myJSON,
                 headers: {
                     'Content-Type': 'application/json'
                 }
