@@ -19,7 +19,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         };
         var reqPostSave = {
             method: 'POST',
-            url: 'https://easy-energy.herokuapp.com/a/electricityOffer',
+            url: 'http://easy-energy.herokuapp.com/a/electricityOffer.json',
             data: $scope.content,
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -32,6 +32,28 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
                 convertDate();
 
             });
+
+
+        $scope.sendData = function() {
+            $http(reqPostSave).then(function() {
+                    convertDateFromObject();
+                    
+                },
+                function() {
+                    convertDate();
+                });
+
+        };
+
+        $scope.sendCalculation = function() {
+            $http(reqPostCalculation).then(function() {
+                    convertDateFromObject();
+                },
+                function() {
+                    convertDate();
+                });
+
+        };
 
         var convertDate = function() {
             $scope.content.creationDate = new Date($scope.content.creationDate);
@@ -130,25 +152,6 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
 
         };
 
-        $scope.sendData = function() {
-            $http(reqPostSave).then(function() {
-                    convertDateFromObject();
-                },
-                function() {
-                    convertDate();
-                });
-
-        };
-
-        $scope.sendCalculation = function() {
-            $http(reqPostCalculation).then(function() {
-                    convertDateFromObject();
-                },
-                function() {
-                    convertDate();
-                });
-
-        };
 
         $scope.addPunctItem = function() {
             if ($scope.content.receiverPointList.length == 0) {
