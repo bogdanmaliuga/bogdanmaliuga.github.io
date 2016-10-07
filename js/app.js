@@ -1,5 +1,6 @@
 angular.module('myApp', ['angularModalService', 'ngAnimate'])
     .controller('myCtrl', ["$scope", "$http", "ModalService", function($scope, $http, ModalService) {
+
         //GET DATA
         $http({
             method: 'GET',
@@ -13,11 +14,12 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
 
         });
 
+
         //POST DATA
         $scope.sendData = function() {
 
             convertDateFromObject();
-            $scope.myJSON=angular.toJson($scope.content);
+
             $http({
                 method: 'POST',
                 dataType: 'json',
@@ -33,11 +35,11 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
             });
             convertDate();
         };
-
+        //CALCULATE DATA
         $scope.sendCalculation = function() {
 
             convertDateFromObject();
-            $scope.myJSON2=angular.toJson($scope.content);
+
             $http({
                 method: 'POST',
                 dataType: 'json',
