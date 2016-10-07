@@ -38,11 +38,11 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
             $scope.offerStorageId=null;
             convertDateFromObject();
             $http(reqPostSave).then(function() {
-
+                console.log('s');
 
                 },
                 function() {
-
+                  console.log('b');
                 });
                 convertDate();
         };
