@@ -19,7 +19,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         };
         var reqPostSave = {
             method: 'POST',
-            url: 'http://easy-energy.herokuapp.com/a/electricityOffer.json',
+            url: 'https://easy-energy.herokuapp.com/a/electricityOffer.json',
             data: $scope.content,
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
