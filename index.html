@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=5">
     <meta charset="UTF-8">
 
-    <title>Oferta</title>
+    <title>LOL</title>
 </head>
 
 <body>
@@ -53,7 +53,7 @@
         </section>
     </article>
 <!-- lość Stref for all Punct Odbioru-->
-    <article class="col-xs-12" ng-show='content.receiverPointList.length>1'>
+    <article class="col-xs-12 no-padding" ng-show='content.receiverPointList.length>=1 && content.offerCalculationPerReceiverPointSet==false'>
         <section class="col-xs-2 no-padding">
             <label>lość Stref:</label>
         </section>
@@ -87,7 +87,7 @@
                 <input ng-disabled="disableFirstSection" type="text" data-ng-model='receiverPointList.tariffCode' class="form-control">
             </section>
         </article>
-        <article class="col-xs-12" ng-show='content.receiverPointList.length==1'>
+        <article class="col-xs-12 " ng-show='content.offerCalculationPerReceiverPointSet==true '>
             <section class="col-xs-2 no-padding">
                 <label>lość Stref:</label>
             </section>
@@ -292,12 +292,7 @@
                             <tr>
                                 <th>^</th>
                                 <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
-                                    <input
-                                        type="text"
-                                        class='form-control'
-                                        ng-disabled='disableCalculationOffer'
-                                        data-ng-model='proposalZoneDetailsList.actualZoneCode'
-                                        ng-change='changeNameOfZoneCodeTwo($parent.$parent.$index,$parent.$index,$index,proposalZoneDetailsList.actualZoneCode)'>
+                                    {{proposalZoneDetailsList.actualZoneCode}}
                                 </th>
                             </tr>
                         </thead>
@@ -324,7 +319,7 @@
                     </table>
                 </article>
                 <section class="buttons col-xs-12">
-                    <button class="btn btn-primary pull-right" ng-click='sendData()'>Wylicz ofertę</button>
+                    <button class="btn btn-primary pull-right" ng-click='sendCalculation()'>Wylicz ofertę</button>
                     <button class="btn btn-success pull-right" ng-model='disableCalculationOffer' ng-click='disableCalculationSection()'>Zatwierdź sekcję</button>
                     <button class="btn btn-success pull-right" ng-click='enableCalculationSection()'>Edytuj sekcję</button>
                 </section>
@@ -540,12 +535,8 @@
                     <tr>
                         <th>^</th>
                         <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
-                            <input
-                                type="text"
-                                class='form-control'
-                                ng-disabled='disableCalculationOffer'
-                                data-ng-model='proposalZoneDetailsList.actualZoneCode'
-                                ng-change='changeNameOfZoneCodeTwo($parent.$parent.$index,$parent.$index,$index,proposalZoneDetailsList.actualZoneCode)'>
+                            {{proposalZoneDetailsList.actualZoneCode}}
+
                         </th>
                     </tr>
                 </thead>
@@ -572,7 +563,7 @@
             </table>
         </article>
         <section class="buttons col-xs-12">
-            <button class="btn btn-primary pull-right" ng-click='sendData()'>Wylicz ofertę</button>
+            <button class="btn btn-primary pull-right" ng-click='sendCalculation()'>Wylicz ofertę</button>
             <button class="btn btn-success pull-right" ng-model='disableCalculationOffer' ng-click='disableCalculationSection()'>Zatwierdź sekcję</button>
             <button class="btn btn-success pull-right" ng-click='enableCalculationSection()'>Edytuj sekcję</button>
         </section>
