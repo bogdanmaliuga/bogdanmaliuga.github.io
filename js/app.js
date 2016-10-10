@@ -4,7 +4,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         //GET DATA
         $http({
             method: 'GET',
-            // url: 'https://easy-energy.herokuapp.com/a/electricityOffer/1.json',
+            // url: 'https://easy-energy.herokuapp.com/a/electricityOffer/{id}',
             url:'./data/punct.json',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
