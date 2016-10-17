@@ -4,16 +4,31 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         //GET DATA
         $http({
             method: 'GET',
-            // url: 'https://easy-energy.herokuapp.com/a/electricityOffer/{id}',
-            url:'./data/punct.json',
+            url: 'https://easy-energy.herokuapp.com/a/electricityOffer/2.json',
+            // url:'./data/punct.json',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             }
         }).then(function(response) {
+          console.log(response.data);
             $scope.content = response.data;
             convertDate();
 
-        });
+        },function errorCallback(response) {
+
+          $http({
+              method: 'GET',
+              url: '../data/newOferta.json',
+              // url:'./data/punct.json',
+              headers: {
+                  'Content-Type': 'application/json;charset=utf-8'
+              }
+          }).then(function(response) {
+
+              $scope.content = response.data;
+              convertDate();
+            });
+  });
 
 
         //POST DATA
