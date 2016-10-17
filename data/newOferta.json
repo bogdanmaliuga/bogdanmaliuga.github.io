@@ -1,18 +1,64 @@
 {
-   "receiverPointList":[
-      {
-         "actualNumberOfZones":1,
-         "actualZoneList":[
-            {
-               "actualZoneCodeCode":"Strefa A1"
+    "creationDate": 1473325469377,
+    "lastEditionDate": 1473325469377,
+    "companyDTO": {
+        "id": null,
+        "companyName": "Hotel pod Dębami",
+        "companyCode": "Hotel pod Dębami",
+        "nip": "5641713529",
+        "regon": null,
+        "zipCode": "20-706",
+        "city": "Wrzosy",
+        "streetName": "Wysoki dołki",
+        "streetNumber": "4"
+    },
+    "receiverPointList": [
+
+        {
+            "receiverPointDescription": "New Licznik",
+            "tariffCode": "New Tarrif Code",
+            "actualNumberOfZones": 1,
+            "actualZoneList": [{
+                "actualZoneCodeCode": "Strefa A1"
+            }],
+            "invoiceList": [{
+                "orderNumber": null,
+                "documentNumber": "FA 22/08/2016",
+                "periodStart": 1453248000000,
+                "getPeriodStop": 1464134400000,
+                "invoiceZoneConsumptionList": [{
+                    "actualZoneCode": "Strefa A1",
+                    "unitConsumption": 0
+                }]
+            }],
+            "receiverPointOfferCalculation": {
+
+                "actualReceiverPointFees": {
+                    "actualTradeFee": 0,
+                    "actualZoneFeeList": [{
+                        "actualZoneCode": "Strefa A1",
+                        "actualUnitPrice": 0
+                    }]
+                },
+                "offerParameters": {
+                    "proposalContractMonthLength": 0,
+                    "defaultProposalTradeFee": 0,
+                    "defaultZoneParamsList": [{
+                        "actualZoneCode": "Strefa A1",
+                        "defaultUnitPrice": 0
+                    }],
+                    "defaultZoneCodesSameAsActual": false
+                },
+                "proposalSellerList": [{
+
+                }]
             }
-         ],
+        }
+    ],
+    "allReceiverPointsOfferCalculation": null,
+    "offerSummaryDTO": {
 
-   }],
-   "allReceiverPointsOfferCalculation":null,
-   "offerSummaryDTO":{
-
-   },
-   "offerNote":"Comment",
-   "offerCalculationPerReceiverPointSet":true
+    },
+    "offerNote": "Estymacja może ulec zmianie w przypadku zmian cen sprzedawcy energii",
+    "offerCalculationPerReceiverPointSet": true
 }
