@@ -18,7 +18,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
 
           $http({
               method: 'GET',
-              url: '../data/newOferta.json',
+              url: '../data/punct.json',
               // url:'./data/punct.json',
               headers: {
                   'Content-Type': 'application/json;charset=utf-8'
