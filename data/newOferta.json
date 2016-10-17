@@ -7,51 +7,8 @@
                "actualZoneCodeCode":"Strefa A1"
             }
          ],
-         "invoiceList":[
-            {
-               "orderNumber":null,
-               "documentNumber":"FA 1",
-               "invoiceZoneConsumptionList":[
-                  {
-                     "actualZoneCode":"Strefa A1",
-                     "unitConsumption":0
-                  }
-               ]
-            }
-         ],
-         "receiverPointOfferCalculation":{
-            "actualReceiverPointFees":{
-               "actualZoneFeeList":[
-                  {
-                     "actualZoneCode":"Strefa A1",
-                     "actualUnitPrice":0
-                  }
-               ]
-            },
-            "offerParameters":{
-               "defaultZoneParamsList":[
-                  {
-                     "actualZoneCode":"Strefa A1",
-                     "defaultUnitPrice":0
-                  }
-               ],
-               "defaultZoneCodesSameAsActual":false
-            },
-            "proposalSellerList":[
-               {
-                  "proposalZoneDetailsList":[
-                     {
-                        "actualZoneCode":"Strefa A1",
-                        "sellerMinimalUnitPrice":0,
-                        "proposalUnitPrice":0,
-                        "proposalZoneCode":"Strefa A1 od "
-                     }
-                  ]
-               }
-            ]
-         }
-      }
-   ],
+
+   }],
    "allReceiverPointsOfferCalculation":null,
    "offerSummaryDTO":{
 
