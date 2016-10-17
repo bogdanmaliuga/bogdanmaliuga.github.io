@@ -1,4 +1,10 @@
-
+label,span,input{
+  height: 24px!important;
+  font: 10px!important;
+}
+h2,h1{
+  font-size: 12px!important;
+}
 .left {
   float: left;
 }
