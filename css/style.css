@@ -1,9 +1,18 @@
 body{
   font-size: 10px!important;
 }
-label,span,input{
+label,span,input[type="text"],input[type="number"],input[type='date']{
   height: 24px!important;
   font-size: 10px!important;
+}
+nav {
+    min-height: 24px!important;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 4px!important;
+  }
+.btn{
+  font-size: 10px;
 }
 h2,h1{
   font-size: 12px!important;
@@ -68,8 +77,8 @@ table thead th {
   text-align: center;
 }
 article {
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: 3px;
+  margin-top: 3px;
 }
 .comment {
   border: 1px solid #f00;
@@ -127,12 +136,13 @@ label {
 .summary-info h2,
 .calc-offer-out h2 {
   overflow: hidden;
-  padding: 10px;
+  padding: 5px;
   background-color: #008000;
   color: #fff;
   font-size: 20px;
   margin-bottom: 10px;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
+  margin-top: 0;
   border-bottom: 3px solid #000;
 }
 .summary-info {
