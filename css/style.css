@@ -9,9 +9,6 @@ input[type='date'] {
   height: 24px !important;
   font-size: 10px !important;
 }
-.navbar-brand{
-  padding: 2px 10px!important;
-}
 nav {
   min-height: 24px !important;
   margin-bottom: 5px !important;
@@ -20,8 +17,12 @@ nav .navbar-text {
   margin-top: 5px !important;
   margin-bottom: 5px !important;
 }
+.navbar-brand {
+  padding: 2px 10px !important;
+}
 .btn {
   font-size: 10px !important;
+  padding: 4.5px 12px !important;
 }
 h1,
 h2 {
@@ -30,9 +31,8 @@ h2 {
 span.btn {
   padding: 4px 8px !important;
 }
-section{
-  margin-top: 2px!important;
-  margin-bottom: 2px!important;
+label {
+  padding: 5px 12px !important;
 }
 .left {
   float: left;
@@ -147,7 +147,7 @@ label {
   margin: 0 10px;
 }
 .calc-offer-out {
-  border: 2px solid #808080;
+  border: 1px solid #808080;
   border-radius: 4px;
 }
 .calc-offer h2,
@@ -160,16 +160,16 @@ label {
   font-size: 20px;
   margin-top: 0px;
   margin-bottom: 4px;
-  border-bottom: 3px solid #000;
+  border-bottom: 1px solid #000;
 }
 .summary-info {
-  border: 2px solid #808080;
+  border: 1px solid #808080;
   overflow: hidden;
   border-radius: 4px;
 }
 .summary-info .summary-info-item {
   margin: 10px 10px;
-  border: 3px solid #008000;
+  border: 1px solid #008000;
   overflow: hidden;
 }
 .summary-info .summary-info-item h2 {
@@ -177,7 +177,7 @@ label {
   background-color: #90ee90;
 }
 .offers-retailers-item {
-  border: 2px solid #f00;
+  border: 1px solid #f00;
   overflow: hidden;
   border-radius: 4px;
 }

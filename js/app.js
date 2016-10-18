@@ -5,7 +5,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         //GET DATA
         $http({
             method: 'GET',
-            url: 'https://easy-energy.voh/a/electricityOffer/1.json',
+            url: 'http://easy-energy.ovh/calc/a/electricityOffer/1.json',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             }
