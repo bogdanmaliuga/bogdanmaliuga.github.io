@@ -1,24 +1,31 @@
-body{
-  font-size: 10px!important;
+body {
+  font-size: 10px !important;
 }
-label,span,input[type="text"],input[type="number"],input[type='date']{
-  height: 24px!important;
-  font-size: 10px!important;
+label,
+span,
+input[type="text"],
+input[type="number"],
+input[type='date'] {
+  height: 24px !important;
+  font-size: 10px !important;
 }
 nav {
-    min-height: 24px!important;
+  min-height: 24px !important;
+  margin-bottom: 5px !important;
 }
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-    padding: 4px!important;
-  }
-.btn{
-  font-size: 10px;
+nav .navbar-text {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
 }
-h2,h1{
-  font-size: 12px!important;
+.btn {
+  font-size: 10px !important;
 }
-span.btn{
-      padding: 4px 8px!important;
+h1,
+h2 {
+  font-size: 12px !important;
+}
+span.btn {
+  padding: 4px 8px !important;
 }
 .left {
   float: left;
@@ -67,6 +74,10 @@ ul {
 }
 table th {
   vertical-align: middle !important;
+  padding: 4px !important;
+}
+table td {
+  padding: 4px !important;
 }
 table thead tr {
   background-color: #6e7623;
@@ -77,8 +88,8 @@ table thead th {
   text-align: center;
 }
 article {
-  margin-bottom: 3px;
-  margin-top: 3px;
+  margin-bottom: 2px;
+  margin-top: 2px;
 }
 .comment {
   border: 1px solid #f00;
@@ -136,13 +147,12 @@ label {
 .summary-info h2,
 .calc-offer-out h2 {
   overflow: hidden;
-  padding: 5px;
+  padding: 4px;
   background-color: #008000;
   color: #fff;
   font-size: 20px;
-  margin-bottom: 10px;
-  /*margin-top: 10px;*/
-  margin-top: 0;
+  margin-top: 0px;
+  margin-bottom: 4px;
   border-bottom: 3px solid #000;
 }
 .summary-info {
@@ -158,9 +168,6 @@ label {
 .summary-info .summary-info-item h2 {
   margin-top: 0;
   background-color: #90ee90;
-}
-.buttons {
-  margin-bottom: 10px;
 }
 .offers-retailers-item {
   border: 2px solid #f00;

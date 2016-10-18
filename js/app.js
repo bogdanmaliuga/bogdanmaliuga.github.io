@@ -1,36 +1,96 @@
 angular.module('myApp', ['angularModalService', 'ngAnimate'])
     .controller('myCtrl', ["$scope", "$http", "ModalService", function($scope, $http, ModalService) {
 
+
         //GET DATA
         $http({
             method: 'GET',
-            url: 'https://easy-energy.herokuapp.com/a/electricityOffer/2.json',
-            // url:'./data/punct.json',
+            url: 'https://easy-energy.voh/a/electricityOffer/1.json',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             }
         }).then(function(response) {
-          console.log(response.data);
+
             $scope.content = response.data;
             convertDate();
 
-        },function errorCallback(response) {
+        }, function error(response) {
+            $scope.getNewOffer();
+            convertDate();
 
-          $http({
-              method: 'GET',
-              url: '../data/newOferta.json',
-              // url:'./data/punct.json',
-              headers: {
-                  'Content-Type': 'application/json;charset=utf-8'
-              }
-          }).then(function(response) {
+        });
 
-              $scope.content = response.data;
-              convertDate();
-            });
-  });
+        $scope.getNewOffer = function() {
+
+            $scope.content = {
+
+                "creationDate": new Date(),
+                "lastEditionDate": new Date(),
+                "companyDTO": {},
+                "receiverPointList": [
+
+                    {
+                        "receiverPointDescription": "new point description",
+                        "tariffCode": "new taryfa",
+                        "actualNumberOfZones": 1,
+                        "actualZoneList": [{
+                            "actualZoneCodeCode": "Strefa A1"
+                        }],
+                        "invoiceList": [{
+                            "orderNumber": null,
+                            "documentNumber": "FA 00/00/0000",
+                            "periodStart": new Date(),
+                            "getPeriodStop": new Date(),
+                            "invoiceZoneConsumptionList": [{
+                                "actualZoneCode": "Strefa A1",
+                                "unitConsumption": 0
+                            }]
+                        }],
+                        "receiverPointOfferCalculation": {
+                            "totalConsumptionSummary": {},
+                            "actualReceiverPointFees": {
+                                "actualTradeFee": 0,
+                                "actualZoneFeeList": [{
+                                    "actualZoneCode": "Strefa A1",
+                                    "actualUnitPrice": 0
+                                }]
+                            },
+                            "offerParameters": {
+                                "proposalContractMonthLength": 0,
+                                "defaultProposalTradeFee": 0,
+                                "defaultZoneParamsList": [{
+                                    "actualZoneCode": "Strefa A1",
+                                    "defaultUnitPrice": 0
+                                }],
+                                "defaultZoneCodesSameAsActual": false
+                            },
+                            "proposalSellerList": [{
+                                "sellerCode": "new Seller Code",
+                                "proposalTradeFee": 0,
+                                "sellerTariffPublicationDate": new Date(),
+                                "proposalZoneDetailsList": [{
+                                    "actualZoneCode": "Strefa A1",
+                                    "sellerMinimalUnitPrice": 0,
+                                    "proposalUnitPrice": 0,
+                                    "proposalZoneCode": "Strefa A1 od new Seller Code"
+                                }],
+                                "receiverPointEstimation": {
+                                    "sellerCode": "new Seller Code",
+                                    "receiverPointDataEstimation": {},
+                                    "receiverPointProvisionList": []
+                                }
+                            }]
+                        }
+                    }
+                ],
+                "allReceiverPointsOfferCalculation": null,
+                "offerSummaryDTO": {},
+                "offerNote": "Comment",
+                "offerCalculationPerReceiverPointSet": true
+            }
 
 
+        };
         //POST DATA
         $scope.sendData = function() {
 

@@ -1,4 +1,6 @@
 {
+    "offerStorageId": 1,
+    "offerNumber": 1,
     "creationDate": 1473325469377,
     "lastEditionDate": 1473325469377,
     "companyDTO": {
@@ -15,11 +17,13 @@
     "receiverPointList": [
 
         {
-            "receiverPointDescription": "New Licznik",
-            "tariffCode": "New Tarrif Code",
-            "actualNumberOfZones": 1,
+            "receiverPointDescription": "Licznik numer 894837",
+            "tariffCode": "Taryfa Popołudniowa",
+            "actualNumberOfZones": 2,
             "actualZoneList": [{
                 "actualZoneCodeCode": "Strefa A1"
+            }, {
+                "actualZoneCodeCode": "Strefa C2"
             }],
             "invoiceList": [{
                 "orderNumber": null,
@@ -28,37 +32,144 @@
                 "getPeriodStop": 1464134400000,
                 "invoiceZoneConsumptionList": [{
                     "actualZoneCode": "Strefa A1",
-                    "unitConsumption": 0
+                    "unitConsumption": 300
+                }, {
+                    "actualZoneCode": "Strefa C2",
+                    "unitConsumption": 200
+                }]
+            }, {
+                "orderNumber": null,
+                "documentNumber": "FA 188/10/2016",
+                "periodStart": 1457568000000,
+                "getPeriodStop": 1462838400000,
+                "invoiceZoneConsumptionList": [{
+                    "actualZoneCode": "Strefa A1",
+                    "unitConsumption": 300
+                }, {
+                    "actualZoneCode": "Strefa C2",
+                    "unitConsumption": 200
                 }]
             }],
             "receiverPointOfferCalculation": {
-
+                "totalConsumptionSummary": {
+                    "totalNumberOfDaysForAllPeriods": 60,
+                    "totalElectricityUnitsConsumptionInAllPeriods": 1000,
+                    "predictedElectricityUnitConsumptionPerYear": 6000
+                },
                 "actualReceiverPointFees": {
-                    "actualTradeFee": 0,
+                    "actualTradeFee": 15,
                     "actualZoneFeeList": [{
                         "actualZoneCode": "Strefa A1",
-                        "actualUnitPrice": 0
+                        "actualUnitPrice": 200
+                    }, {
+                        "actualZoneCode": "Strefa C2",
+                        "actualUnitPrice": 300
                     }]
                 },
                 "offerParameters": {
-                    "proposalContractMonthLength": 0,
-                    "defaultProposalTradeFee": 0,
+                    "proposalContractMonthLength": 24,
+                    "defaultProposalTradeFee": 12,
                     "defaultZoneParamsList": [{
                         "actualZoneCode": "Strefa A1",
-                        "defaultUnitPrice": 0
+                        "defaultUnitPrice": 150
+                    }, {
+                        "actualZoneCode": "Strefa C2",
+                        "defaultUnitPrice": 250
                     }],
                     "defaultZoneCodesSameAsActual": false
                 },
                 "proposalSellerList": [{
-
+                    "sellerCode": "Tauron",
+                    "proposalTradeFee": 12,
+                    "sellerTariffPublicationDate": 1473325469349,
+                    "proposalZoneDetailsList": [{
+                        "actualZoneCode": "Strefa A1",
+                        "sellerMinimalUnitPrice": 150,
+                        "proposalUnitPrice": 180,
+                        "proposalZoneCode": "Strefa A1 od Tauron"
+                    }, {
+                        "actualZoneCode": "Strefa C2",
+                        "sellerMinimalUnitPrice": 150,
+                        "proposalUnitPrice": 280,
+                        "proposalZoneCode": "Strefa C2 od Tauron"
+                    }],
+                    "receiverPointEstimation": {
+                        "sellerCode": "Tauron",
+                        "receiverPointDataEstimation": {
+                            "tariffIssueDate": 1473325469350,
+                            "estimatedUnitConsumptionInYearScale": 99999,
+                            "estimatedContractProfitValue": 5000,
+                            "estimatedContractProfitValueInYearScale": 2500,
+                            "estimatedSavingsInYearScale": 600,
+                            "estimatedSavingsInContractScale": 1200,
+                            "estimatedSavingsInPercentage": 30
+                        },
+                        "receiverPointProvisionList": [{
+                            "levelCode": "Próg I",
+                            "traderProvisionInYearScale": 300,
+                            "traderProvisionInContractScale": 600,
+                            "partnerProvisionInContractScale": 150
+                        }, {
+                            "levelCode": "Próg II",
+                            "traderProvisionInYearScale": 400,
+                            "traderProvisionInContractScale": 800,
+                            "partnerProvisionInContractScale": 200
+                        }, {
+                            "levelCode": "Próg III",
+                            "traderProvisionInYearScale": 500,
+                            "traderProvisionInContractScale": 1000,
+                            "partnerProvisionInContractScale": 250
+                        }]
+                    }
+                }, {
+                    "sellerCode": "Cez",
+                    "proposalTradeFee": 13,
+                    "sellerTariffPublicationDate": 1473325469351,
+                    "proposalZoneDetailsList": [{
+                        "actualZoneCode": "Strefa A1",
+                        "sellerMinimalUnitPrice": 110,
+                        "proposalUnitPrice": 175,
+                        "proposalZoneCode": "Strefa A1 od CEZ"
+                    }, {
+                        "actualZoneCode": "Strefa C2",
+                        "sellerMinimalUnitPrice": 185,
+                        "proposalUnitPrice": 275,
+                        "proposalZoneCode": "Strefa C2 od CEZ"
+                    }],
+                    "receiverPointEstimation": {
+                        "sellerCode": "Cez",
+                        "receiverPointDataEstimation": {
+                            "tariffIssueDate": 1473325469351,
+                            "estimatedUnitConsumptionInYearScale": 9999,
+                            "estimatedContractProfitValue": 5000,
+                            "estimatedContractProfitValueInYearScale": 2500,
+                            "estimatedSavingsInYearScale": 600,
+                            "estimatedSavingsInContractScale": 1200,
+                            "estimatedSavingsInPercentage": 30
+                        },
+                        "receiverPointProvisionList": [{
+                            "levelCode": "Próg I",
+                            "traderProvisionInYearScale": 350,
+                            "traderProvisionInContractScale": 700,
+                            "partnerProvisionInContractScale": 175
+                        }, {
+                            "levelCode": "Próg II",
+                            "traderProvisionInYearScale": 450,
+                            "traderProvisionInContractScale": 900,
+                            "partnerProvisionInContractScale": 225
+                        }, {
+                            "levelCode": "Próg III",
+                            "traderProvisionInYearScale": 550,
+                            "traderProvisionInContractScale": 1100,
+                            "partnerProvisionInContractScale": 275
+                        }]
+                    }
                 }]
             }
         }
     ],
     "allReceiverPointsOfferCalculation": null,
-    "offerSummaryDTO": {
-
-    },
-    "offerNote": "Estymacja może ulec zmianie w przypadku zmian cen sprzedawcy energii",
+    "offerSummaryDTO": {},
+    "offerNote": "Content",
     "offerCalculationPerReceiverPointSet": true
 }
