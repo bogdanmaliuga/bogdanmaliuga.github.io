@@ -9,6 +9,9 @@ input[type='date'] {
   height: 24px !important;
   font-size: 10px !important;
 }
+navbar-brand{
+  padding: 2px 10px!important;
+}
 nav {
   min-height: 24px !important;
   margin-bottom: 5px !important;
@@ -26,6 +29,10 @@ h2 {
 }
 span.btn {
   padding: 4px 8px !important;
+}
+section{
+  margin-top: 2px!important;
+  margin-bottom: 2px!important;
 }
 .left {
   float: left;
