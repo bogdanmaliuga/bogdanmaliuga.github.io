@@ -66,10 +66,12 @@
         <article class="punct-item" data-ng-repeat='receiverPointList in content.receiverPointList' ng-controller="ShowHideController as show">
             
             <nav class="navbar navbar-default">
+             <span class="btn btn-primary glyphicon  pull-left" ng-class="show.status" aria-hidden="true" data-ng-click='show.showhide()'></span>
+           
                 <p class="navbar-text">
                     {{$index+1}}. Punkt odbioru ({{receiverPointList.receiverPointDescription}})</p>
                 <span class="navbar-brand glyphicon glyphicon-trash" aria-hidden="true" data-ng-click='removeReciverPoint($index)'></span>
-                <button class="btn btn-success pull-left"  data-ng-click='show.showhide()'>{{show.status}}</button>
+                
                
             </nav>
         <div class="punct-container" ng-hide='show.isHide'>

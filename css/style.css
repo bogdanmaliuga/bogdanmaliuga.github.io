@@ -30,6 +30,7 @@ h2 {
 }
 span.btn {
   padding: 4px 8px !important;
+  top: 0px;
 }
 label {
   padding: 5px 12px !important;
