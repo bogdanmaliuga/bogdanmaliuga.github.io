@@ -41,6 +41,9 @@ label {
 .right {
   float: right;
 }
+.close-puncts {
+  display: none !important;
+}
 ul {
   list-style: none;
   margin: 0;
@@ -76,9 +79,21 @@ ul {
   float: right;
 }
 .punct-item {
-  border: 0.5px solid #008000;
+  border: 1px solid #00f;
   border-radius: 4px;
   overflow: hidden;
+}
+.checkbox {
+  margin-left: 10px;
+}
+.checkbox label {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: none !important;
+}
+input[type='checkbox'] {
+  margin: 0 !important;
+  margin-left: -14px !important;
 }
 table th {
   vertical-align: middle !important;
@@ -100,7 +115,7 @@ article {
   margin-top: 2px;
 }
 .comment {
-  border: 1px solid #f00;
+  border: 1px solid #808080;
   border-radius: 4px;
 }
 .comment p {
@@ -148,7 +163,7 @@ label {
   margin: 0 10px;
 }
 .calc-offer-out {
-  border: 1px solid #808080;
+  border: 1px solid #00f;
   border-radius: 4px;
 }
 .calc-offer h2,
@@ -164,7 +179,7 @@ label {
   border-bottom: 1px solid #000;
 }
 .summary-info {
-  border: 1px solid #808080;
+  border: 1px solid #ffa500;
   overflow: hidden;
   border-radius: 4px;
 }

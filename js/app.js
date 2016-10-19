@@ -1,11 +1,12 @@
 angular.module('myApp', ['angularModalService', 'ngAnimate'])
-    .controller('myCtrl', ["$scope", "$http", "ModalService", function($scope, $http, ModalService) {
+ .controller('myCtrl', ["$scope", "$http", "ModalService", function($scope, $http, ModalService) {
 
 
         //GET DATA
         $http({
             method: 'GET',
-            url: 'http://easy-energy.ovh/calc/a/electricityOffer/1.json',
+            // url: 'http://easy-energy.ovh/calc/a/electricityOffer/1.json',
+            url: '../data/punct.json',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             }
@@ -542,6 +543,8 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
             });
 
         };
+
+
 
         $scope.disableFields = function() {
             $scope.disableFirstSection = true;
