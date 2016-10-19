@@ -83,13 +83,13 @@
         <article class="punct-item" data-ng-repeat='receiverPointList in content.receiverPointList' ng-controller="ShowHideController as show">
         
             <nav class="navbar navbar-default">
-                <span class="btn btn-primary glyphicon  pull-left" ng-class="Data.status" aria-hidden="true" data-ng-click='show.showhide()'></span>
+                <span class="btn btn-primary glyphicon  pull-left" ng-class="Data.status[$index]" aria-hidden="true" data-ng-click='show.showhide($index)'></span>
                 <p class="navbar-text">
                     {{$index+1}}. Punkt odbioru ({{receiverPointList.receiverPointDescription}})</p>
                 <span class="navbar-brand glyphicon glyphicon-trash" aria-hidden="true" data-ng-click='removeReciverPoint($index)'></span>
             </nav>
            
-            <div class="punct-container" ng-hide='Data.isHide'>
+            <div class="punct-container" ng-hide='Data.isHide[$index]'>
                 <article class="col-xs-12">
                     <section class="col-xs-4 no-padding">
                         <label>Numer licznika / opis punktu odbioru:</label>

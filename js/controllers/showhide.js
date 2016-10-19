@@ -3,20 +3,22 @@ var app = angular.module('myApp');
 
 app.controller('ShowHideController', ['$scope', 'Data', function($scope, Data) {
     $scope.Data = Data;
-    $scope.Data.isHide = false;
-    $scope.Data.status = 'glyphicon-minus';
+
+
+    $scope.Data.status.push('glyphicon-minus');
+    $scope.Data.isHide.push(false);
     var vm = this;
 
-    vm.showhide = function() {
-        if ( $scope.Data.isHide == false) {
-             $scope.Data.isHide = true;
-             $scope.Data.status= 'glyphicon-plus-sign';
+    vm.showhide = function(index) {
+        if ($scope.Data.isHide[index] == false) {
+            $scope.Data.isHide[index] = true;
+            $scope.Data.status[index] = 'glyphicon-plus-sign';
 
 
 
         } else {
-             $scope.Data.isHide = false;
-            $scope.Data.status = 'glyphicon-minus';
+            $scope.Data.isHide[index] = false;
+            $scope.Data.status[index] = 'glyphicon-minus';
         }
 
     }

@@ -1,34 +1,52 @@
 var app = angular.module('myApp');
 
-app.controller('CloseSectionCtrl', ['$scope','Data', function($scope,Data) {
-   $scope.Data=Data;
-   $scope.Data.isHide=false;
-   $scope.Data.status='glyphicon-minus';
-   var vm=this;
+app.controller('CloseSectionCtrl', ['$scope', 'Data', function($scope, Data) {
+    $scope.Data = Data;
 
-   vm.isSectionClose=false;
-   vm.closeSections=function (argument) {
-       if($scope.content.offerCalculationPerReceiverPointSet==true){
-            if(vm.isSectionClose==true){
-                $scope.Data.status='glyphicon-plus-sign';
-                $scope.Data.isHide=true;
-                
+
+
+    var vm = this;
+
+    vm.isSectionClose = false;
+    vm.closeSections = function(argument) {
+        var z = $scope.Data.status.length;
+        if ($scope.content.offerCalculationPerReceiverPointSet == true) {
+            if (vm.isSectionClose == true) {
+
+
+                for (var i = 0; i < z; i++) {
+                    $scope.Data.status[i] = 'glyphicon-plus-sign';
+                    $scope.Data.isHide[i] = true;
+                }
+
+
+            } else {
+
+                for (var i = 0; i < z; i++) {
+                    $scope.Data.status[i] = 'glyphicon-minus';
+                    $scope.Data.isHide[i] = false;
+                }
+
             }
-            else{
-               $scope.Data.status='glyphicon-minus';
-                $scope.Data.isHide=false ;
+        } else if ($scope.content.offerCalculationPerReceiverPointSet == false) {
+            if (vm.isSectionClose == true) {
+
+
+                for (var i = 0; i < z; i++) {
+                    $scope.Data.status[i] = 'glyphicon-plus-sign';
+                    $scope.Data.isHide[i] = true;
+                }
+
+
+            } else {
+
+                for (var i = 0; i < z; i++) {
+                    $scope.Data.status[i] = 'glyphicon-minus';
+                    $scope.Data.isHide[i] = false;
+                }
+
             }
-       }
-       else if($scope.content.offerCalculationPerReceiverPointSet==false){
-        if(vm.isSectionClose==true){
-                $scope.Data.status='glyphicon-plus-sign';
-                $scope.Data.isHide=true;
-            }
-            else{
-               $scope.Data.status='glyphicon-minus';
-                $scope.Data.isHide=false ;
-            }
-       }
+        }
     }
 
 
