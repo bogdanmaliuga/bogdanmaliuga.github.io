@@ -197,3 +197,25 @@ label {
   overflow: hidden;
   border-radius: 4px;
 }
+.calc-offer span.btn,
+.calc-offer-out span.btn {
+  top: 1px;
+}
+.calc-offer nav,
+.calc-offer-out nav {
+  background-color: #008000;
+  border: none;
+}
+.calc-offer nav span,
+.calc-offer-out nav span {
+  color: #fff !important;
+}
+.calc-offer p,
+.calc-offer-out p {
+  font-size: 12px !important;
+  color: #fff !important;
+}
+.calc-offer .btn-purple,
+.calc-offer-out .btn-purple {
+  background-color: #800080;
+}

@@ -60,3 +60,23 @@ app.controller('ShowHideCalculationCtrl', ['$scope', function($scope) {
     };
 
 }]);
+
+app.controller('ShowHideSummaryCalculation', ['$scope', function($scope) {
+    var vm = this;
+
+    vm.statusSummaryCalculation = 'glyphicon-minus';
+    vm.isSummaryCalcHide = false;
+    vm.showhideSummaryCalculation = function() {
+
+
+        if (vm.isSummaryCalcHide === false) {
+           vm.isSummaryCalcHide = true;
+            vm.statusSummaryCalculation = 'glyphicon-plus-sign';
+        } else {
+            vm.isSummaryCalcHide = false;
+            vm.statusSummaryCalculation = 'glyphicon-minus';
+        }
+
+    };
+
+}]);
