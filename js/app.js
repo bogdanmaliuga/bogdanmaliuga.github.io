@@ -37,7 +37,8 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
             });
         }
         if (requestSourceType == sourceNewOffer) {
-            initNewOffer($scope)
+            initNewOffer($scope);
+             convertDate();
         }
 
         function initNewOffer($scope) {
@@ -123,6 +124,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
                 }
             }).success(function (response) {
                 $scope.content = response;
+                convertDate();
             }).error(function (error) {
                 $scope.error = error;
             });
@@ -144,6 +146,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
                 }
             }).success(function (response) {
                 $scope.content = response;
+                convertDate();
             }).error(function (error) {
                 $scope.error = error;
             });
