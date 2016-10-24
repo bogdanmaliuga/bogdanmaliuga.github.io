@@ -80,3 +80,23 @@ app.controller('ShowHideSummaryCalculation', ['$scope', function($scope) {
     };
 
 }]);
+
+app.controller('ShowHideOfertu', ['$scope', function($scope) {
+    var vm = this;
+
+    vm.statusOfertu = 'glyphicon-minus';
+    vm.isOfertuHide = false;
+    vm.showhideOfertu = function() {
+
+
+        if (vm.isOfertuHide === false) {
+           vm.isOfertuHide = true;
+            vm.statusOfertu = 'glyphicon-plus-sign';
+        } else {
+            vm.isOfertuHide = false;
+            vm.statusOfertu = 'glyphicon-minus';
+        }
+
+    };
+
+}]);

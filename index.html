@@ -7,7 +7,7 @@
     <script src="js/lib/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=5">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Oferta</title>
 </head>
@@ -55,7 +55,7 @@
             <section class="col-xs-6 no-padding">
                 <div class="checkbox">
                     <label>
-                        <input  data-ng-model='close.isSectionClose' type="checkbox" data-ng-change='close.closeSections()'><span>Ukryj sekcję</span></label>
+                        <input data-ng-model='close.isSectionClose' type="checkbox" data-ng-change='close.closeSections()'><span>Ukryj sekcję</span></label>
                 </div>
             </section>
         </article>
@@ -75,23 +75,23 @@
         </article>
         <!-- End lość Stref for all Punct Odbioru -->
         <!-- Punct Item -->
-        <article class="punct-item" data-ng-repeat='receiverPointList in content.receiverPointList' ng-controller="ShowHideController as show" ng-init='punktIndex=$index'>
+        <article class="punct-item  no-padding frame-color" data-ng-repeat='receiverPointList in content.receiverPointList' ng-controller="ShowHideController as show" ng-init='punktIndex=$index'>
             <nav class="navbar navbar-default">
-                <span class="btn btn-primary glyphicon  pull-left" ng-class="Data.status[$index]" aria-hidden="true" data-ng-click='show.showhide($index)'></span>
+                <span class="btn showhide-color glyphicon  pull-left" ng-class="Data.status[$index]" aria-hidden="true" data-ng-click='show.showhide($index)'></span>
                 <p class="navbar-text">
                     {{$index+1}}. Punkt odbioru ({{receiverPointList.receiverPointDescription}})</p>
                 <span class="navbar-brand glyphicon glyphicon-trash" aria-hidden="true" data-ng-click='removeReciverPoint($index)'></span>
             </nav>
-            <div class="punct-container" ng-hide='Data.isHide[$index]'>
-                <article class="col-xs-12">
+            <div class="punct-container " ng-hide='Data.isHide[$index]'>
+                <article class="col-xs-12 ">
                     <section class="col-xs-4 no-padding">
-                        <label>Numer licznika / opis punktu odbioru:</label>
+                        <label class='fields-color'>Numer licznika / opis punktu odbioru:</label>
                     </section>
                     <section class="col-xs-3">
                         <input data-ng-disabled="disableFirstSection" type="text" data-ng-model='receiverPointList.receiverPointDescription' class="form-control">
                     </section>
                     <section class="col-xs-2 no-padding">
-                        <label>Nazwa taryfy:</label>
+                        <label class='fields-color'>Nazwa taryfy:</label>
                     </section>
                     <section class="col-xs-3">
                         <input data-ng-disabled="disableFirstSection" type="text" data-ng-model='receiverPointList.tariffCode' class="form-control">
@@ -99,7 +99,7 @@
                 </article>
                 <article class="col-xs-12 " data-ng-show='content.offerCalculationPerReceiverPointSet==true '>
                     <section class="col-xs-2 no-padding">
-                        <label>lość Stref:</label>
+                        <label class='fields-color'>lość Stref:</label>
                     </section>
                     <section class="col-xs-1">
                         <input type='number' min="1" max="4" data-ng-disabled="true" data-ng-model='receiverPointList.actualNumberOfZones' class="form-control">
@@ -109,41 +109,41 @@
                         <span class="btn btn-default glyphicon glyphicon-minus" data-ng-disabled="disableFirstSection" aria-hidden="true" data-ng-click='disableFirstSection || deleteNumberOfZones($index)'></span>
                     </section>
                 </article>
-                <article class="col-xs-12">
+                <article class="col-xs-12 ">
                     <table class="table table-bordered ">
                         <thead>
                             <tr>
-                                <th class='col-xs-1'></th>
-                                <th class='col-xs-1' data-ng-repeat='actualZoneList in receiverPointList.actualZoneList'>{{$index+1}}</th>
+                                <th class='col-xs-1 fields-color'></th>
+                                <th class='col-xs-1 fields-color' data-ng-repeat='actualZoneList in receiverPointList.actualZoneList'>{{$index+1}}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th class='col-xs-1'>Nazwa strefy:</th>
-                                <th class='col-xs-1' data-ng-repeat='actualZoneList in receiverPointList.actualZoneList'>
+                                <th class='col-xs-1 fields-color'>Nazwa strefy:</th>
+                                <th class='col-xs-1 ' data-ng-repeat='actualZoneList in receiverPointList.actualZoneList'>
                                     <input data-ng-disabled="disableFirstSection" class='form-control' type="text" data-ng-model='actualZoneList.actualZoneCodeCode' data-ng-change='changeNameOfZoneCode($parent.$index,$index,actualZoneList.actualZoneCodeCode)'>
                                 </th>
                             </tr>
                         </tbody>
                     </table>
                 </article>
-                <article class="col-xs-12">
+                <article class="col-xs-12 ">
                     <table class="table table-bordered ">
                         <thead>
                             <tr>
-                                <th>Zużycie</th>
+                                <th class='fields-color'>Zużycie</th>
                             </tr>
                             <tr>
-                                <th>Lp</th>
-                                <th>Dokument</th>
-                                <th>Początek okresu</th>
-                                <th>Koniec okresu</th>
-                                <th data-ng-repeat='invoiceZone in receiverPointList.invoiceList[0].invoiceZoneConsumptionList'>{{invoiceZone.actualZoneCode}}</th>
+                                <th class='fields-color'>Lp</th>
+                                <th class='fields-color'>Dokument</th>
+                                <th class='fields-color'>Początek okresu</th>
+                                <th class='fields-color'>Koniec okresu</th>
+                                <th class='fields-color' data-ng-repeat='invoiceZone in receiverPointList.invoiceList[0].invoiceZoneConsumptionList'>{{invoiceZone.actualZoneCode}}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr data-ng-repeat='invoiceList in receiverPointList.invoiceList'>
-                                <th>{{$index+1}}</th>
+                                <th class='fields-color'>{{$index+1}}</th>
                                 <th>
                                     <input type="text" class='form-control' data-ng-model='invoiceList.documentNumber' data-ng-disabled="disableFirstSection">
                                 </th>
@@ -166,48 +166,48 @@
                         </tbody>
                     </table>
                 </article>
-                <article class="buttons col-xs-12">
-                    <button class="btn btn-success pull-right" data-ng-model='disableFirstSection' data-ng-click='disableFields()'>Zatwierdź sekcję</button>
-                    <button class="btn btn-success pull-right" data-ng-model='disableFirstSection' data-ng-click='enableFields()'>Edytuj sekcję</button>
+                <article class="buttons col-xs-12 ">
+                    <button class="btn button-color pull-right" data-ng-model='disableFirstSection' data-ng-click='disableFields()'>Zatwierdź sekcję</button>
+                    <button class="btn button-color pull-right" data-ng-model='disableFirstSection' data-ng-click='enableFields()'>Edytuj sekcję</button>
                 </article>
-                <article class="col-xs-12 no-padding calc-offer" data-ng-show="content.offerCalculationPerReceiverPointSet" ng-controller='ShowHideSummaryCalculation as showSummaryCalc'>
+                <article class="row  calc-offer no-padding " data-ng-show="content.offerCalculationPerReceiverPointSet" ng-controller='ShowHideSummaryCalculation as showSummaryCalc'>
                     <nav class="navbar navbar-default">
-                        <span class="btn btn-purple glyphicon  pull-left" ng-class="showSummaryCalc.statusSummaryCalculation" aria-hidden="true" data-ng-click='showSummaryCalc.showhideSummaryCalculation()'></span>
+                        <span class="btn showhide-color glyphicon  pull-left" ng-class="showSummaryCalc.statusSummaryCalculation" aria-hidden="true" data-ng-click='showSummaryCalc.showhideSummaryCalculation()'></span>
                         <p class="navbar-text">Sekcja kalkulacji oferty</p>
                     </nav>
                     <div class="section-calc-item" ng-hide="showSummaryCalc.isSummaryCalcHide">
-                        <h2> Dane łączne z licznika</h2>
+                        <h2 class='fields-color'> Dane łączne z licznika</h2>
                         <section class="col-xs-12">
                             <table class="table table-bordered ">
                                 <tbody>
                                     <tr>
-                                        <th>Łącznia ilość dni na podstawie zakresów</th>
+                                        <th class='fields-color'>Łącznia ilość dni na podstawie zakresów</th>
                                         <th>
                                             {{receiverPointList.receiverPointOfferCalculation.totalConsumptionSummary.totalNumberOfDaysForAllPeriods}}</th>
                                     </tr>
                                     <tr>
-                                        <th>Łączna ilość kwH w podanych zakresach</th>
+                                        <th class='fields-color'>Łączna ilość kwH w podanych zakresach</th>
                                         <th>{{receiverPointList.receiverPointOfferCalculation.totalConsumptionSummary.totalElectricityUnitsConsumptionInAllPeriods}}</th>
                                     </tr>
                                     <tr>
-                                        <th>Szacowane zużycie roczne w Mwh</th>
+                                        <th class='fields-color'>Szacowane zużycie roczne w Mwh</th>
                                         <th>{{receiverPointList.receiverPointOfferCalculation.totalConsumptionSummary.predictedElectricityUnitConsumptionPerYear}}</th>
                                     </tr>
                                 </tbody>
                             </table>
                         </section>
-                        <h2>Aktualne ceny klienta</h2>
+                        <h2 class='fields-color'>Aktualne ceny klienta</h2>
                         <section class="col-xs-12">
                             <table class="table table-bordered ">
                                 <thead>
                                     <tr>
-                                        <th></th>
-                                        <th data-ng-repeat='actualZoneFeeList in receiverPointList.receiverPointOfferCalculation.actualReceiverPointFees.actualZoneFeeList'>{{actualZoneFeeList.actualZoneCode}}</th>
+                                        <th class='fields-color'></th>
+                                        <th class='fields-color' data-ng-repeat='actualZoneFeeList in receiverPointList.receiverPointOfferCalculation.actualReceiverPointFees.actualZoneFeeList'>{{actualZoneFeeList.actualZoneCode}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th>Aktualne ceny za kWH</th>
+                                        <th class='fields-color'>Aktualne ceny za kWH</th>
                                         <th data-ng-repeat='actualZoneFeeList in receiverPointList.receiverPointOfferCalculation.actualReceiverPointFees.actualZoneFeeList'>
                                             <input type="number" class='form-control' data-ng-model='actualZoneFeeList.actualUnitPrice' data-ng-disabled='disableActualPrice'>
                                         </th>
@@ -217,191 +217,193 @@
                         </section>
                         <section class="col-xs-12">
                             <section class="col-xs-3 no-padding">
-                                <label>Aktualna opłata handlowa:</label>
+                                <label class='fields-color'>Aktualna opłata handlowa:</label>
                             </section>
                             <section class="col-xs-1">
                                 <input type="number" data-ng-disabled='disableActualPrice' data-ng-model='receiverPointList.receiverPointOfferCalculation.actualReceiverPointFees.actualTradeFee' class="form-control">
                             </section>
                         </section>
                         <section class="buttons col-xs-12">
-                            <button class="btn btn-success pull-right" data-ng-model='disableActualPrice' data-ng-click='disableActualSection()'>Zatwierdź sekcję</button>
-                            <button class="btn btn-success pull-right" data-ng-click='enableActualSection()'>Edytuj sekcję</button>
+                            <button class=" button-color btn  pull-right" data-ng-model='disableActualPrice' data-ng-click='disableActualSection()'>Zatwierdź sekcję</button>
+                            <button class="btn button-color pull-right" data-ng-click='enableActualSection()'>Edytuj sekcję</button>
                         </section>
-                        <div class="offer-parameters">
-                            <h2>Parametry oferty</h2>
-                            <article class="col-xs-12">
-                                <section class="col-xs-3 no-padding">
-                                    <label>Proponowana długość kontraktu:</label>
-                                </section>
-                                <section class="col-xs-2">
-                                    <input data-ng-disabled='disableParametersOffer' type="number" data-ng-model='receiverPointList.receiverPointOfferCalculation.offerParameters.defaultProposalTradeFee' class="form-control">
-                                </section>
-                                <section class="col-xs-3 no-padding">
-                                <label>Domyślna oferowana opłata handlowa:</label>
-                                    
-                                </section>
-                                <section class="col-xs-2">
-                                    <input data-ng-disabled='disableParametersOffer' type="number" data-ng-model='receiverPointList.receiverPointOfferCalculation.offerParameters.proposalContractMonthLength' class="form-control">
-                                </section>
-                            </article>
-                            <section class="col-xs-12">
-                                <table class="table table-bordered ">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th data-ng-repeat='defaultZoneParamsList in receiverPointList.receiverPointOfferCalculation.offerParameters.defaultZoneParamsList'>{{defaultZoneParamsList.actualZoneCode}}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>Domyślna oferowana cena:</th>
-                                            <th data-ng-repeat='defaultZoneParamsList in receiverPointList.receiverPointOfferCalculation.offerParameters.defaultZoneParamsList'>
-                                                <input data-ng-disabled='disableParametersOffer' type="number" class='form-control' data-ng-model='defaultZoneParamsList.defaultUnitPrice'>
-                                            </th>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <h2 class='fields-color'>Parametry oferty</h2>
+                        <article class="col-xs-12">
+                            <section class="col-xs-3 no-padding">
+                                <label class='fields-color'>Proponowana długość kontraktu:</label>
                             </section>
-                            <article class="buttons col-xs-12">
-                                <button class="btn btn-success pull-right" data-ng-model='disableParametersOffer' data-ng-click='disableParametersSection()'>Zatwierdź sekcję</button>
-                                <button class="btn btn-success pull-right" data-ng-click='enableParametersSection()'>Edytuj sekcję</button>
-                            </article>
-                        </div>
-                        <h2>Oferty sprzedawców</h2>
-                        <article class="col-xs-12 offers-retailers">
-                            <article class="offers-retailers-item" data-ng-repeat='proposalSellerList in receiverPointList.receiverPointOfferCalculation.proposalSellerList' ng-controller='ShowHideCalculationCtrl as hideCalc'>
-                                <nav class="navbar navbar-default">
-                                    <span class="btn btn-danger glyphicon  pull-left" ng-class="hideCalc.statusCalculation" aria-hidden="true" data-ng-click='hideCalc.showhideCalculation()'></span>
-                                    <p class="navbar-text">{{$index+1}}. Kalkulacja ({{proposalSellerList.sellerCode}})</p>
-                                    <span class="navbar-brand glyphicon glyphicon-trash" aria-hidden="true" data-ng-click='removeOfferRetailer($index,punktIndex)'></span>
-                                </nav>
-                                <div class="calculation-container" ng-hide='hideCalc.isCalculationHide'>
-                                    <article class="col-xs-12">
-                                        <section class="col-xs-2 no-padding">
-                                            <label>Nazwa sprzedawcy:</label>
-                                        </section>
-                                        <section class="col-xs-2">
-                                            <input type="text" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.sellerCode' class="form-control">
-                                        </section>
-                                        <section class="col-xs-3 no-padding">
-                                            <label>Data aktualizacji cennika taryfy:</label>
-                                        </section>
-                                        <section class="col-xs-2">
-                                            <input type="date" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.sellerTariffPublicationDate' class="form-control">
-                                        </section>
-                                    </article>
-                                    <article class="col-xs-12">
-                                        <section class="col-xs-3 no-padding">
-                                            <label>Oferowana opłata handlowa:</label>
-                                        </section>
-                                        <section class="col-xs-2">
-                                            <input type="number" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.proposalTradeFee' class="form-control">
-                                        </section>
-                                    </article>
-                                    <article class="col-xs-12">
-                                        <table class="table table-bordered ">
-                                            <thead>
-                                                <tr>
-                                                    <th>^</th>
-                                                    <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
-                                                        {{proposalZoneDetailsList.actualZoneCode}}
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th>Cena Operatora z cennika</th>
-                                                    <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
-                                                        <input type="number" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.sellerMinimalUnitPrice'>
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <th>Oferowana cena / MWh (some description)</th>
-                                                    <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
-                                                        <input type="number" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.proposalUnitPrice'>
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <th>Nazwa oferowanej strefy (some description)</th>
-                                                    <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
-                                                        <input type="text" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.proposalZoneCode'>
-                                                    </th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </article>
-                                    <section class="buttons col-xs-12">
-                                        <button class="btn btn-primary pull-right" data-ng-click='sendCalculation()'>Wylicz ofertę</button>
-                                        <button class="btn btn-success pull-right" data-ng-model='disableCalculationOffer' data-ng-click='disableCalculationSection()'>Zatwierdź sekcję</button>
-                                        <button class="btn btn-success pull-right" data-ng-click='enableCalculationSection()'>Edytuj sekcję</button>
+                            <section class="col-xs-2">
+                                <input data-ng-disabled='disableParametersOffer' type="number" data-ng-model='receiverPointList.receiverPointOfferCalculation.offerParameters.defaultProposalTradeFee' class="form-control">
+                            </section>
+                            <section class="col-xs-3 no-padding">
+                                <label class='fields-color'>Domyślna oferowana opłata handlowa:</label>
+                            </section>
+                            <section class="col-xs-2">
+                                <input data-ng-disabled='disableParametersOffer' type="number" data-ng-model='receiverPointList.receiverPointOfferCalculation.offerParameters.proposalContractMonthLength' class="form-control">
+                            </section>
+                        </article>
+                        <section class="col-xs-12">
+                            <table class="table table-bordered ">
+                                <thead>
+                                    <tr>
+                                        <th class='fields-color'></th>
+                                        <th class='fields-color' data-ng-repeat='defaultZoneParamsList in receiverPointList.receiverPointOfferCalculation.offerParameters.defaultZoneParamsList'>{{defaultZoneParamsList.actualZoneCode}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th class='fields-color'>Domyślna oferowana cena:</th>
+                                        <th data-ng-repeat='defaultZoneParamsList in receiverPointList.receiverPointOfferCalculation.offerParameters.defaultZoneParamsList'>
+                                            <input data-ng-disabled='disableParametersOffer' type="number" class='form-control' data-ng-model='defaultZoneParamsList.defaultUnitPrice'>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                        <article class="buttons col-xs-12">
+                            <button class="btn button-color pull-right" data-ng-model='disableParametersOffer' data-ng-click='disableParametersSection()'>Zatwierdź sekcję</button>
+                            <button class="btn button-color pull-right" data-ng-click='enableParametersSection()'>Edytuj sekcję</button>
+                        </article>
+                    </div>
+                </article>
+                <article class="row no-padding offers-retailers" data-ng-show="content.offerCalculationPerReceiverPointSet" ng-controller="ShowHideOfertu as showOfertu">
+                    <nav class="navbar navbar-default">
+                        <span class="btn showhide-color glyphicon  pull-left" ng-class="showOfertu.statusOfertu" aria-hidden="true" data-ng-click='showOfertu.showhideOfertu()'></span>
+                        <p class="navbar-text">Oferty sprzedawców</p>
+                    </nav>
+                    <div class="offers-retailers-container" ng-hide='showOfertu.isOfertuHide'>
+                        <article class="offers-retailers-item" data-ng-repeat='proposalSellerList in receiverPointList.receiverPointOfferCalculation.proposalSellerList' ng-controller='ShowHideCalculationCtrl as hideCalc'>
+                            <nav class="navbar navbar-default">
+                                <span class="btn button-color glyphicon  pull-left" ng-class="hideCalc.statusCalculation" aria-hidden="true" data-ng-click='hideCalc.showhideCalculation()'></span>
+                                <p class="navbar-text">{{$index+1}}. Kalkulacja ({{proposalSellerList.sellerCode}})</p>
+                                <span class="navbar-brand glyphicon glyphicon-trash" aria-hidden="true" data-ng-click='removeOfferRetailer($index,punktIndex)'></span>
+                            </nav>
+                            <div class="calculation-container" ng-hide='hideCalc.isCalculationHide'>
+                                <article class="col-xs-12">
+                                    <section class="col-xs-2 no-padding">
+                                        <label class='fields-color'>Nazwa sprzedawcy:</label>
                                     </section>
-                                    <article class="col-xs-12">
-                                        <table class="table table-bordered table-striped col-xs-12 ">
-                                            <thead>
-                                                <tr>
-                                                    <th>Na podstawienie cennika z dnia</th>
-                                                    <th>Szacowana masa marży dla wszystkich punktów</th>
-                                                    <th>Szacowana całkowita masa marży w skali roku</th>
-                                                    <th>Szacowana oszczędność w skali roku dla wszystkich punktów</th>
-                                                    <th>Szacowana oszczędność w skali umowy</th>
-                                                    <th>Oszczędność w ujęciu procentowym dla wszystkich punktów</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th>
-                                                        {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.tariffIssueDate}}
-                                                    </th>
-                                                    <th>
-                                                        {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedUnitConsumptionInYearScale}}
-                                                    </th>
-                                                    <th>
-                                                        {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedContractProfitValue}}
-                                                    </th>
-                                                    <th>
-                                                        {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedContractProfitValueInYearScale}}
-                                                    </th>
-                                                    <th>
-                                                        {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedSavingsInContractScale}}
-                                                    </th>
-                                                    <th>
-                                                        {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedSavingsInPercentage}}
-                                                    </th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </article>
-                                    <article class="col-xs-12">
-                                        <table class="table table-bordered table-striped col-xs-12 ">
-                                            <thead>
-                                                <tr>
-                                                    <th>Pułap</th>
-                                                    <th>Prowizja roczna</th>
-                                                    <th>
-                                                        Prowizja z umowy</th>
-                                                    <th>Prowizja Partnera z umowy</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr data-ng-repeat='receiverPointProvisionList in proposalSellerList.receiverPointEstimation.receiverPointProvisionList'>
-                                                    <th>{{receiverPointProvisionList.levelCode}}</th>
-                                                    <th>{{receiverPointProvisionList.traderProvisionInYearScale}}</th>
-                                                    <th>{{receiverPointProvisionList.traderProvisionInContractScale}}</th>
-                                                    <th>{{receiverPointProvisionList.partnerProvisionInContractScale}}</th>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </article>
-                                </div>
-                            </article>
-                            <article class="col-xs-12 no-padding">
-                                <section class="col-xs-2 no-padding">
-                                    <label>Dodaj sprzedawcę</label>
+                                    <section class="col-xs-2">
+                                        <input type="text" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.sellerCode' class="form-control">
+                                    </section>
+                                    <section class="col-xs-3 no-padding">
+                                        <label class='fields-color'>Data aktualizacji cennika taryfy:</label>
+                                    </section>
+                                    <section class="col-xs-2">
+                                        <input type="date" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.sellerTariffPublicationDate' class="form-control">
+                                    </section>
+                                </article>
+                                <article class="col-xs-12">
+                                    <section class="col-xs-3 no-padding">
+                                        <label class='fields-color'>Oferowana opłata handlowa:</label>
+                                    </section>
+                                    <section class="col-xs-2">
+                                        <input type="number" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.proposalTradeFee' class="form-control">
+                                    </section>
+                                </article>
+                                <article class="col-xs-12">
+                                    <table class="table table-bordered ">
+                                        <thead>
+                                            <tr>
+                                                <th class='fields-color'>^</th>
+                                                <th class='fields-color' data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
+                                                    {{proposalZoneDetailsList.actualZoneCode}}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th class='fields-color'>Cena Operatora z cennika</th>
+                                                <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
+                                                    <input type="number" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.sellerMinimalUnitPrice'>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class='fields-color'>Oferowana cena / MWh (some description)</th>
+                                                <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
+                                                    <input type="number" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.proposalUnitPrice'>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class='fields-color'>Nazwa oferowanej strefy (some description)</th>
+                                                <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
+                                                    <input type="text" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.proposalZoneCode'>
+                                                </th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </article>
+                                <section class="buttons col-xs-12">
+                                    <button class="btn button-color pull-right" data-ng-click='sendCalculation()'>Wylicz ofertę</button>
+                                    <button class="btn button-color pull-right" data-ng-model='disableCalculationOffer' data-ng-click='disableCalculationSection()'>Zatwierdź sekcję</button>
+                                    <button class="btn button-color pull-right" data-ng-click='enableCalculationSection()'>Edytuj sekcję</button>
                                 </section>
-                                <section class="col-xs-2">
-                                    <span class="btn btn-default glyphicon glyphicon-plus-sign" data-ng-click='addCalculationOffer($index)' aria-hidden="true"></span>
-                                </section>
-                            </article>
+                                <article class="col-xs-12">
+                                    <table class="table table-bordered table-striped col-xs-12 ">
+                                        <thead>
+                                            <tr>
+                                                <th class='fields-color'>Na podstawienie cennika z dnia</th>
+                                                <th class='fields-color'>Szacowana masa marży dla wszystkich punktów</th>
+                                                <th class='fields-color'>Szacowana całkowita masa marży w skali roku</th>
+                                                <th class='fields-color'>Szacowana oszczędność w skali roku dla wszystkich punktów</th>
+                                                <th class='fields-color'>Szacowana oszczędność w skali umowy</th>
+                                                <th class='fields-color'>Oszczędność w ujęciu procentowym dla wszystkich punktów</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>
+                                                    {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.tariffIssueDate}}
+                                                </th>
+                                                <th>
+                                                    {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedUnitConsumptionInYearScale}}
+                                                </th>
+                                                <th>
+                                                    {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedContractProfitValue}}
+                                                </th>
+                                                <th>
+                                                    {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedContractProfitValueInYearScale}}
+                                                </th>
+                                                <th>
+                                                    {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedSavingsInContractScale}}
+                                                </th>
+                                                <th>
+                                                    {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedSavingsInPercentage}}
+                                                </th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </article>
+                                <article class="col-xs-12">
+                                    <table class="table table-bordered table-striped col-xs-12 ">
+                                        <thead>
+                                            <tr>
+                                                <th class='fields-color'>Pułap</th>
+                                                <th class='fields-color'>Prowizja roczna</th>
+                                                <th class='fields-color'>
+                                                    Prowizja z umowy</th>
+                                                <th class='fields-color'>Prowizja Partnera z umowy</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-ng-repeat='receiverPointProvisionList in proposalSellerList.receiverPointEstimation.receiverPointProvisionList'>
+                                                <th>{{receiverPointProvisionList.levelCode}}</th>
+                                                <th>{{receiverPointProvisionList.traderProvisionInYearScale}}</th>
+                                                <th>{{receiverPointProvisionList.traderProvisionInContractScale}}</th>
+                                                <th>{{receiverPointProvisionList.partnerProvisionInContractScale}}</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </article>
+                            </div>
+                        </article>
+                        <article class="col-xs-12 ">
+                            <section class="col-xs-2 no-padding">
+                                <label class='fields-color'>Dodaj sprzedawcę</label>
+                            </section>
+                            <section class="col-xs-2">
+                                <span class="btn btn-default glyphicon glyphicon-plus-sign" data-ng-click='addCalculationOffer($index)' aria-hidden="true"></span>
+                            </section>
                         </article>
                     </div>
                 </article>
@@ -417,262 +419,272 @@
             </section>
         </article>
         <!-- all Reciever Point Offer Calcilation -->
-        <article class="col-xs-12 no-padding calc-offer-out" data-ng-hide="content.offerCalculationPerReceiverPointSet" ng-controller='ShowHideSummaryCalculation as showSummaryCalc'>
-                                <nav class="navbar navbar-default">
-                        <span class="btn btn-purple glyphicon  pull-left" ng-class="showSummaryCalc.statusSummaryCalculation" aria-hidden="true" data-ng-click='showSummaryCalc.showhideSummaryCalculation()'></span>
-                        <p class="navbar-text">Sekcja kalkulacji oferty</p>
-                    </nav>
-                    <div class="section-calc-item" ng-hide="showSummaryCalc.isSummaryCalcHide">
-            <h2>Dane łączne z licznika</h2>
-            <section class="col-xs-12">
-                <table class="table table-bordered ">
-                    <tbody>
-                        <tr>
-                            <th>Łącznia ilość dni na podstawie zakresów</th>
-                            <th>
-                                {{content.allReceiverPointsOfferCalculation.totalConsumptionSummary.totalNumberOfDaysForAllPeriods}}</th>
-                        </tr>
-                        <tr>
-                            <th>Łączna ilość kwH w podanych zakresach</th>
-                            <th>{{content.allReceiverPointsOfferCalculation.totalConsumptionSummary.totalElectricityUnitsConsumptionInAllPeriods}}</th>
-                        </tr>
-                        <tr>
-                            <th>Szacowane zużycie roczne w Mwh</th>
-                            <th>{{content.allReceiverPointsOfferCalculation.totalConsumptionSummary.predictedElectricityUnitConsumptionPerYear}}</th>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            <h2>Aktualne ceny klienta</h2>
-            <section class="col-xs-12">
-                <table class="table table-bordered ">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th data-ng-repeat='actualZoneFeeList in content.allReceiverPointsOfferCalculation.actualReceiverPointFees.actualZoneFeeList'>{{actualZoneFeeList.actualZoneCode}}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>Aktualne ceny za kWH</th>
-                            <th data-ng-repeat='actualZoneFeeList in content.allReceiverPointsOfferCalculation.actualReceiverPointFees.actualZoneFeeList'>
-                                <input type="number" class='form-control' data-ng-model='actualZoneFeeList.actualUnitPrice' data-ng-disabled='disableActualPrice'>
-                            </th>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            <section class="col-xs-12">
-                <section class="col-xs-3 no-padding">
-                    <label>Aktualna opłata handlowa:</label>
-                </section>
-                <section class="col-xs-1">
-                    <input type="number" data-ng-disabled='disableActualPrice' data-ng-model='content.allReceiverPointsOfferCalculation.actualReceiverPointFees.actualTradeFee' class="form-control">
-                </section>
-            </section>
-            <section class="buttons col-xs-12">
-                <button class="btn btn-success pull-right" data-ng-model='disableActualPrice' data-ng-click='disableActualSection()'>Zatwierdź sekcję</button>
-                <button class="btn btn-success pull-right" data-ng-click='enableActualSection()'>Edytuj sekcję</button>
-            </section>
-            <div class="offer-parameters">
-                <h2>Parametry oferty</h2>
-                <article class="col-xs-12">
-                    <section class="col-xs-3 no-padding">
-                        <label>Proponowana długość kontraktu:</label>
+        <div class="out-calc-container" data-ng-hide="content.offerCalculationPerReceiverPointSet">
+            <article class="col-xs-12 no-padding calc-offer-out"  ng-controller='ShowHideSummaryCalculation as showSummaryCalc'>
+                <nav class="navbar navbar-default">
+                    <span class="btn button-color glyphicon  pull-left" ng-class="showSummaryCalc.statusSummaryCalculation" aria-hidden="true" data-ng-click='showSummaryCalc.showhideSummaryCalculation()'></span>
+                    <p class="navbar-text">Sekcja kalkulacji oferty</p>
+                </nav>
+                <div class="section-calc-item" ng-hide="showSummaryCalc.isSummaryCalcHide">
+                    <h2 class='fields-color'>Dane łączne z licznika</h2>
+                    <section class="col-xs-12">
+                        <table class="table table-bordered ">
+                            <tbody>
+                                <tr>
+                                    <th class='fields-color'>Łącznia ilość dni na podstawie zakresów</th>
+                                    <th >
+                                        {{content.allReceiverPointsOfferCalculation.totalConsumptionSummary.totalNumberOfDaysForAllPeriods}}</th>
+                                </tr>
+                                <tr>
+                                    <th class='fields-color'>Łączna ilość kwH w podanych zakresach</th>
+                                    <th>{{content.allReceiverPointsOfferCalculation.totalConsumptionSummary.totalElectricityUnitsConsumptionInAllPeriods}}</th>
+                                </tr>
+                                <tr>
+                                    <th class='fields-color'>Szacowane zużycie roczne w Mwh</th>
+                                    <th>{{content.allReceiverPointsOfferCalculation.totalConsumptionSummary.predictedElectricityUnitConsumptionPerYear}}</th>
+                                </tr>
+                            </tbody>
+                        </table>
                     </section>
-                    <section class="col-xs-2">
-                        <input data-ng-disabled='disableParametersOffer' type="number" data-ng-model='content.allReceiverPointsOfferCalculation.offerParameters.defaultProposalTradeFee' class="form-control">
+                    <h2 class='fields-color'>Aktualne ceny klienta</h2>
+                    <section class="col-xs-12">
+                        <table class="table table-bordered ">
+                            <thead>
+                                <tr>
+                                    <th class='fields-color'></th>
+                                    <th  class='fields-color' data-ng-repeat='actualZoneFeeList in content.allReceiverPointsOfferCalculation.actualReceiverPointFees.actualZoneFeeList'>{{actualZoneFeeList.actualZoneCode}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class='fields-color'>Aktualne ceny za kWH</th>
+                                    <th data-ng-repeat='actualZoneFeeList in content.allReceiverPointsOfferCalculation.actualReceiverPointFees.actualZoneFeeList'>
+                                        <input type="number" class='form-control' data-ng-model='actualZoneFeeList.actualUnitPrice' data-ng-disabled='disableActualPrice'>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
                     </section>
-                    <section class="col-xs-3 no-padding">
-                    <label>Domyślna oferowana opłata handlowa:</label>
-                        
+                    <section class="col-xs-12">
+                        <section class="col-xs-3 no-padding">
+                            <label class='fields-color'>Aktualna opłata handlowa:</label>
+                        </section>
+                        <section class="col-xs-1">
+                            <input type="number" data-ng-disabled='disableActualPrice' data-ng-model='content.allReceiverPointsOfferCalculation.actualReceiverPointFees.actualTradeFee' class="form-control">
+                        </section>
                     </section>
-                    <section class="col-xs-2">
-                        <input data-ng-disabled='disableParametersOffer' type="number" data-ng-model='content.allReceiverPointsOfferCalculation.offerParameters.proposalContractMonthLength' class="form-control">
+                    <section class="buttons col-xs-12">
+                        <button class="btn button-color pull-right" data-ng-model='disableActualPrice' data-ng-click='disableActualSection()'>Zatwierdź sekcję</button>
+                        <button class="btn button-color pull-right" data-ng-click='enableActualSection()'>Edytuj sekcję</button>
                     </section>
-                </article>
-                <section class="col-xs-12">
-                    <table class="table table-bordered ">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th data-ng-repeat='defaultZoneParamsList in content.allReceiverPointsOfferCalculation.offerParameters.defaultZoneParamsList'>{{defaultZoneParamsList.actualZoneCode}}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>Domyślna oferowana cena:</th>
-                                <th data-ng-repeat='defaultZoneParamsList in content.allReceiverPointsOfferCalculation.offerParameters.defaultZoneParamsList'>
-                                    <input data-ng-disabled='disableParametersOffer' type="number" class='form-control' data-ng-model='defaultZoneParamsList.defaultUnitPrice'>
-                                </th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-                <article class="buttons col-xs-12">
-                    <button class="btn btn-success pull-right" data-ng-model='disableParametersOffer' data-ng-click='disableParametersSection()'>Zatwierdź sekcję</button>
-                    <button class="btn btn-success pull-right" data-ng-click='enableParametersSection()'>Edytuj sekcję</button>
-                </article>
-            </div>
-            <h2>Oferty sprzedawców</h2>
-            <article class="col-xs-12 offers-retailers">
-                <article class="offers-retailers-item" data-ng-repeat='proposalSellerList in content.allReceiverPointsOfferCalculation.proposalSellerList' ng-controller='ShowHideCalculationCtrl as calc'>
-                    <nav class="navbar navbar-default">
-                        <p class="navbar-text">
-                            <span class="btn btn-danger glyphicon  pull-left" ng-class="calc.statusCalculation" aria-hidden="true" data-ng-click='calc.showhideCalculation()'></span> {{$index+1}}. Kalkulacja ({{proposalSellerList.sellerCode}})</p>
-                        <span class="navbar-brand glyphicon glyphicon-trash" aria-hidden="true" data-ng-click='removeOfferRetailer($index,$parent.$index)'></span>
-                    </nav>
-                    <div class="calculation-item-container" ng-hide='calc.isCalculationHide'>
-                        <article class="col-xs-12">
-                            <section class="col-xs-2 no-padding">
-                                <label>Nazwa sprzedawcy:</label>
-                            </section>
-                            <section class="col-xs-2">
-                                <input type="text" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.sellerCode' class="form-control">
-                            </section>
-                            <section class="col-xs-3 no-padding">
-                                <label>Data aktualizacji cennika taryfy:</label>
-                            </section>
-                            <section class="col-xs-2">
-                                <input type="date" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.sellerTariffPublicationDate' class="form-control">
-                            </section>
-                        </article>
+                    <div class="offer-parameters">
+                        <h2 class='fields-color'>Parametry oferty</h2>
                         <article class="col-xs-12">
                             <section class="col-xs-3 no-padding">
-                                <label>Oferowana opłata handlowa:</label>
+                                <label class='fields-color'>Proponowana długość kontraktu:</label>
                             </section>
                             <section class="col-xs-2">
-                                <input type="number" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.proposalTradeFee' class="form-control">
+                                <input data-ng-disabled='disableParametersOffer' type="number" data-ng-model='content.allReceiverPointsOfferCalculation.offerParameters.defaultProposalTradeFee' class="form-control">
+                            </section>
+                            <section class="col-xs-3 no-padding">
+                                <label class='fields-color'>Domyślna oferowana opłata handlowa:</label>
+                            </section>
+                            <section class="col-xs-2">
+                                <input data-ng-disabled='disableParametersOffer' type="number" data-ng-model='content.allReceiverPointsOfferCalculation.offerParameters.proposalContractMonthLength' class="form-control">
                             </section>
                         </article>
-                        <article class="col-xs-12">
+                        <section class="col-xs-12">
                             <table class="table table-bordered ">
                                 <thead>
                                     <tr>
-                                        <th>^</th>
-                                        <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
-                                            {{proposalZoneDetailsList.actualZoneCode}}
+                                        <th class='fields-color'></th>
+                                        <th class='fields-color' data-ng-repeat='defaultZoneParamsList in content.allReceiverPointsOfferCalculation.offerParameters.defaultZoneParamsList'>{{defaultZoneParamsList.actualZoneCode}}
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th>Cena Operatora z cennika</th>
-                                        <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
-                                            <input type="number" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.sellerMinimalUnitPrice'>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <th>Oferowana cena / MWh (some description)</th>
-                                        <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
-                                            <input type="number" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.proposalUnitPrice'>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <th>Nazwa oferowanej strefy (some description)</th>
-                                        <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
-                                            <input type="text" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.proposalZoneCode'>
+                                        <th class='fields-color'>Domyślna oferowana cena:</th>
+                                        <th data-ng-repeat='defaultZoneParamsList in content.allReceiverPointsOfferCalculation.offerParameters.defaultZoneParamsList'>
+                                            <input data-ng-disabled='disableParametersOffer' type="number" class='form-control' data-ng-model='defaultZoneParamsList.defaultUnitPrice'>
                                         </th>
                                     </tr>
                                 </tbody>
                             </table>
-                        </article>
-                        <section class="buttons col-xs-12">
-                            <button class="btn btn-primary pull-right" data-ng-click='sendCalculation()'>Wylicz ofertę</button>
-                            <button class="btn btn-success pull-right" data-ng-model='disableCalculationOffer' data-ng-click='disableCalculationSection()'>Zatwierdź sekcję</button>
-                            <button class="btn btn-success pull-right" data-ng-click='enableCalculationSection()'>Edytuj sekcję</button>
                         </section>
-                        <article class="col-xs-12">
-                            <table class="table table-bordered table-striped col-xs-12 ">
-                                <thead>
-                                    <tr>
-                                        <th>Na podstawienie cennika z dnia</th>
-                                        <th>Szacowana masa marży dla wszystkich punktów</th>
-                                        <th>Szacowana całkowita masa marży w skali roku</th>
-                                        <th>Szacowana oszczędność w skali roku dla wszystkich punktów</th>
-                                        <th>Szacowana oszczędność w skali umowy</th>
-                                        <th>Oszczędność w ujęciu procentowym dla wszystkich punktów</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>
-                                            {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.tariffIssueDate}}
-                                        </th>
-                                        <th>
-                                            {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedUnitConsumptionInYearScale}}
-                                        </th>
-                                        <th>
-                                            {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedContractProfitValue}}
-                                        </th>
-                                        <th>
-                                            {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedContractProfitValueInYearScale}}
-                                        </th>
-                                        <th>
-                                            {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedSavingsInContractScale}}
-                                        </th>
-                                        <th>
-                                            {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedSavingsInPercentage}}
-                                        </th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </article>
-                        <article class="col-xs-12">
-                            <table class="table table-bordered table-striped col-xs-12 ">
-                                <thead>
-                                    <tr>
-                                        <th>Pułap</th>
-                                        <th>Prowizja roczna</th>
-                                        <th>
-                                            Prowizja z umowy</th>
-                                        <th>Prowizja Partnera z umowy</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr data-ng-repeat='receiverPointProvisionList in proposalSellerList.receiverPointEstimation.receiverPointProvisionList'>
-                                        <th>{{receiverPointProvisionList.levelCode}}</th>
-                                        <th>{{receiverPointProvisionList.traderProvisionInYearScale}}</th>
-                                        <th>{{receiverPointProvisionList.traderProvisionInContractScale}}</th>
-                                        <th>{{receiverPointProvisionList.partnerProvisionInContractScale}}</th>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <article class="buttons col-xs-12">
+                            <button class="btn button-color pull-right" data-ng-model='disableParametersOffer' data-ng-click='disableParametersSection()'>Zatwierdź sekcję</button>
+                            <button class="btn button-color pull-right" data-ng-click='enableParametersSection()'>Edytuj sekcję</button>
                         </article>
                     </div>
-                </article>
-                <article class="col-xs-12 no-padding">
-                    <section class="col-xs-2 no-padding">
-                        <label>Dodaj sprzedawcę</label>
-                    </section>
-                    <section class="col-xs-2">
-                        <span class="btn btn-default glyphicon glyphicon-plus-sign" data-ng-click='addCalculationOfferPoints($index)' aria-hidden="true"></span>
-                    </section>
-                </article>
-            </article>
-            </div>
-        </article>
+                    </div>
+                    </article>
+                    <article class="col-xs-12 no-padding offers-retailers" ng-controller="ShowHideOfertu as showOfertu">
+                     <nav class="navbar navbar-default">
+                        <span class="btn showhide-color glyphicon  pull-left" ng-class="showOfertu.statusOfertu" aria-hidden="true" data-ng-click='showOfertu.showhideOfertu()'></span>
+                        <p class="navbar-text">Oferty sprzedawców</p>
+                    </nav>
+                    <div ng-hide='showOfertu.isOfertuHide'>
+                        <article class="offers-retailers-item" data-ng-repeat='proposalSellerList in content.allReceiverPointsOfferCalculation.proposalSellerList' ng-controller='ShowHideCalculationCtrl as calc'>
+                            <nav class="navbar navbar-default">
+                            <span class="btn button-color glyphicon  pull-left" ng-class="calc.statusCalculation" aria-hidden="true" data-ng-click='calc.showhideCalculation()'></span>
+                                <p class="navbar-text">
+                                     {{$index+1}}. Kalkulacja ({{proposalSellerList.sellerCode}})</p>
+                                <span class="navbar-brand glyphicon glyphicon-trash" aria-hidden="true" data-ng-click='removeOfferRetailer($index,$parent.$index)'></span>
+                            </nav>
+                            <div class="calculation-item-container" ng-hide='calc.isCalculationHide'>
+                                <article class="col-xs-12">
+                                    <section class="col-xs-2 no-padding">
+                                        <label class='fields-color'>Nazwa sprzedawcy:</label>
+                                    </section>
+                                    <section class="col-xs-2">
+                                        <input type="text" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.sellerCode' class="form-control">
+                                    </section>
+                                    <section class="col-xs-3 no-padding">
+                                        <label class='fields-color'>Data aktualizacji cennika taryfy:</label>
+                                    </section>
+                                    <section class="col-xs-2">
+                                        <input type="date" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.sellerTariffPublicationDate' class="form-control">
+                                    </section>
+                                </article>
+                                <article class="col-xs-12">
+                                    <section class="col-xs-3 no-padding">
+                                        <label class='fields-color'>Oferowana opłata handlowa:</label>
+                                    </section>
+                                    <section class="col-xs-2">
+                                        <input type="number" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.proposalTradeFee' class="form-control">
+                                    </section>
+                                </article>
+                                <article class="col-xs-12">
+                                    <table class="table table-bordered ">
+                                        <thead>
+                                            <tr>
+                                                <th class='fields-color'>^</th>
+                                                <th class='fields-color'data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
+                                                    {{proposalZoneDetailsList.actualZoneCode}}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th class='fields-color'>Cena Operatora z cennika</th>
+                                                <th  data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
+                                                    <input type="number" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.sellerMinimalUnitPrice'>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class='fields-color'>Oferowana cena / MWh (some description)</th>
+                                                <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
+                                                    <input type="number" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.proposalUnitPrice'>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class='fields-color'>Nazwa oferowanej strefy (some description)</th>
+                                                <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
+                                                    <input type="text" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.proposalZoneCode'>
+                                                </th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </article>
+                                <section class="buttons col-xs-12">
+                                    <button class="btn button-color pull-right" data-ng-click='sendCalculation()'>Wylicz ofertę</button>
+                                    <button class="btn button-color pull-right" data-ng-model='disableCalculationOffer' data-ng-click='disableCalculationSection()'>Zatwierdź sekcję</button>
+                                    <button class="btn button-color pull-right" data-ng-click='enableCalculationSection()'>Edytuj sekcję</button>
+                                </section>
+                                <article class="col-xs-12">
+                                    <table class="table table-bordered table-striped col-xs-12 ">
+                                        <thead>
+                                            <tr>
+                                                <th class='fields-color'>Na podstawienie cennika z dnia</th>
+                                                <th class='fields-color'>Szacowana masa marży dla wszystkich punktów</th>
+                                                <th class='fields-color'>Szacowana całkowita masa marży w skali roku</th>
+                                                <th class='fields-color'>Szacowana oszczędność w skali roku dla wszystkich punktów</th>
+                                                <th class='fields-color'>Szacowana oszczędność w skali umowy</th>
+                                                <th class='fields-color'>Oszczędność w ujęciu procentowym dla wszystkich punktów</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>
+                                                    {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.tariffIssueDate}}
+                                                </th>
+                                                <th>
+                                                    {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedUnitConsumptionInYearScale}}
+                                                </th>
+                                                <th>
+                                                    {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedContractProfitValue}}
+                                                </th>
+                                                <th>
+                                                    {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedContractProfitValueInYearScale}}
+                                                </th>
+                                                <th>
+                                                    {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedSavingsInContractScale}}
+                                                </th>
+                                                <th>
+                                                    {{proposalSellerList.receiverPointEstimation.receiverPointDataEstimation.estimatedSavingsInPercentage}}
+                                                </th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </article>
+                                <article class="col-xs-12">
+                                    <table class="table table-bordered table-striped col-xs-12 ">
+                                        <thead>
+                                            <tr>
+                                                <th class='fields-color'>Pułap</th>
+                                                <th class='fields-color'>Prowizja roczna</th>
+                                                <th class='fields-color'>
+                                                   Prowizja z umowy</th>
+                                                <th class='fields-color'>Prowizja Partnera z umowy</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-ng-repeat='receiverPointProvisionList in proposalSellerList.receiverPointEstimation.receiverPointProvisionList'>
+                                                <th>{{receiverPointProvisionList.levelCode}}</th>
+                                                <th>{{receiverPointProvisionList.traderProvisionInYearScale}}</th>
+                                                <th>{{receiverPointProvisionList.traderProvisionInContractScale}}</th>
+                                                <th>{{receiverPointProvisionList.partnerProvisionInContractScale}}</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </article>
+                            </div>
+                        </article>
+                        <article class="col-xs-12 no-padding">
+                            <section class="col-xs-2 no-padding">
+                                <label>Dodaj sprzedawcę</label>
+                            </section>
+                            <section class="col-xs-2">
+                                <span class="btn btn-default glyphicon glyphicon-plus-sign" data-ng-click='addCalculationOfferPoints($index)' aria-hidden="true"></span>
+                            </section>
+                        </article>
+                        </div>
+                    </article>
+               
+            
+        </div>
         <!-- End of all Reciever Point Ofeer -->
         <!-- Summary Info -->
         <article class="col-xs-12 no-padding summary-info" ng-controller='ShowHideController as showSumary'>
             <nav class="navbar navbar-default">
-                <span class="btn btn-warning glyphicon  pull-left" ng-class="showSumary.statusSummary" aria-hidden="true" data-ng-click='showSumary.showhideSumary()'></span>
+                <span class="btn button-color glyphicon  pull-left" ng-class="showSumary.statusSummary" aria-hidden="true" data-ng-click='showSumary.showhideSumary()'></span>
                 <p class="navbar-text">Podsumowanie dla wszystkich punktów odbioru</p>
             </nav>
             <div class="summary-info-container" ng-hide='showSumary.isSummaryHide'>
-                <h2>Estymacja dla punktu odbioru</h2>
+                <h2 class='fields-color'>Estymacja dla punktu odbioru</h2>
                 <article class="summary-info-item " data-ng-repeat='receiverPointEstimationList in content.offerSummaryDTO.receiverPointEstimationList'>
-                    <h2>{{receiverPointEstimationList.sellerCode}}</h2>
+                    <h2 class='fields-color'>{{receiverPointEstimationList.sellerCode}}</h2>
                     <section class="col-xs-12">
                         <table class="table table-bordered table-striped col-xs-12 ">
                             <thead>
                                 <tr>
-                                    <th>Na podstawienie cennika z dnia</th>
-                                    <th>Szacowana masa marży dla całej umowy</th>
-                                    <th>Szacowana masa marży w skali roku</th>
-                                    <th>Szacowana oszczędność w skali roku</th>
-                                    <th>Szacowana oszczędność w skali umowy</th>
-                                    <th>Oszczędność w ujęciu procentowym</th>
+                                    <th class='fields-color'>Na podstawienie cennika z dnia</th>
+                                    <th class='fields-color'>Szacowana masa marży dla całej umowy</th>
+                                    <th class='fields-color'>Szacowana masa marży w skali roku</th>
+                                    <th class='fields-color'>Szacowana oszczędność w skali roku</th>
+                                    <th class='fields-color'>Szacowana oszczędność w skali umowy</th>
+                                    <th class='fields-color'>Oszczędność w ujęciu procentowym</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -699,16 +711,15 @@
                             </tbody>
                         </table>
                     </section>
-                    <h2>Prowizje z punktu odbioru</h2>
+                    <h2 class='fields-color'>Prowizje z punktu odbioru</h2>
                     <article class="col-xs-12">
                         <table class="table table-bordered table-striped col-xs-12 ">
                             <thead>
                                 <tr>
-                                    <th>Pułap</th>
-                                    <th>Prowizja Handlowca roczna</th>
-                                    <th>
-                                        Prowizja Handlowa z umowy</th>
-                                    <th>Prowizja Partnera z umowyy</th>
+                                    <th class='fields-color'>Pułap</th>
+                                    <th class='fields-color'>Prowizja Handlowca roczna</th>
+                                    <th class='fields-color'> Prowizja Handlowa z umowy</th>
+                                    <th class='fields-color'>Prowizja Partnera z umowyy</th>
                                 </tr>
                             </thead>
                             <tbody>
