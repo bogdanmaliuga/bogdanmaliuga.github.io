@@ -19,7 +19,7 @@
                 <label>Nazva ofertu</label>
             </section>
             <section class="col-xs-2">
-                <input type="text" data-ng-model='content.offerNumber' class="form-control" readonly>
+                <input type="number" data-ng-model='content.offerNumber' class="form-control" readonly>
             </section>
             <section class="col-xs-2">
                 <label>Data utworzenia:</label>
@@ -55,7 +55,7 @@
             <section class="col-xs-6 no-padding">
                 <div class="checkbox">
                     <label>
-                        <input data-ng-model='close.isSectionClose' type="checkbox" data-ng-change='close.closeSections()'><span>Ukryj sekcję</span></label>
+                        <input  data-ng-model='close.isSectionClose' type="checkbox" data-ng-change='close.closeSections()'><span>Ukryj sekcję</span></label>
                 </div>
             </section>
         </article>
@@ -295,7 +295,7 @@
                                             <label>Oferowana opłata handlowa:</label>
                                         </section>
                                         <section class="col-xs-2">
-                                            <input type="text" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.proposalTradeFee' class="form-control">
+                                            <input type="number" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.proposalTradeFee' class="form-control">
                                         </section>
                                     </article>
                                     <article class="col-xs-12">
@@ -542,7 +542,7 @@
                                 <label>Oferowana opłata handlowa:</label>
                             </section>
                             <section class="col-xs-2">
-                                <input type="text" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.proposalTradeFee' class="form-control">
+                                <input type="number" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.proposalTradeFee' class="form-control">
                             </section>
                         </article>
                         <article class="col-xs-12">
@@ -743,6 +743,7 @@
     <script src="js/app.js"></script>
     <script src='js/services/closeservice.js'></script>
     <script src='js/controllers/yesnocontroller.js'></script>
+    <script src='js/controllers/erorrcontroller.js'></script>
     <script src='js/controllers/showhide.js'></script>
     <script src='js/controllers/closesectioncontroller.js'></script>
 </body>
