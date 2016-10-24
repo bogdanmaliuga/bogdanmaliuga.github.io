@@ -197,15 +197,9 @@ label {
 .calc-offer-out span.btn {
   top: 1px;
 }
-.calc-offer nav,
-.calc-offer-out nav {
-  border: none;
-span
-}
 .calc-offer p,
 .calc-offer-out p {
   font-size: 12px !important;
-  color: #fff !important;
 }
 .buttons {
   margin-bottom: 4px;
@@ -231,8 +225,8 @@ span
   border-color: #00f;
 }
 .punct-item nav {
-  background-color: #ccc;
-  color: #000;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
 }
 .punct-item .button-color {
   background-color: #337ab7;
@@ -252,8 +246,8 @@ span
   border-radius: 4px;
 }
 .calc-offer nav {
-  background-color: #ccc;
-  color: #000;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
 }
 .calc-offer .button-color {
   background-color: #9055a2;
@@ -272,8 +266,8 @@ span
   border-radius: 4px;
 }
 .offers-retailers nav {
-  background-color: #ccc;
-  color: #000;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
 }
 .offers-retailers .button-color {
   background-color: #d9534f;
@@ -293,8 +287,8 @@ span
   border-radius: 4px;
 }
 .summary-info nav {
-  background-color: #ccc;
-  color: #000;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
 }
 .summary-info .button-color {
   background-color: #f0ad4e;
@@ -314,8 +308,8 @@ span
   border-radius: 4px;
 }
 .calc-offer-out nav {
-  background-color: #ccc;
-  color: #000;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
 }
 .calc-offer-out .button-color {
   background-color: #800080;
