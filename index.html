@@ -75,7 +75,7 @@
         </article>
         <!-- End lość Stref for all Punct Odbioru -->
         <!-- Punct Item -->
-        <article class="punct-item" data-ng-repeat='receiverPointList in content.receiverPointList' ng-controller="ShowHideController as show">
+        <article class="punct-item" data-ng-repeat='receiverPointList in content.receiverPointList' ng-controller="ShowHideController as show" ng-init='punktIndex=$index'>
             <nav class="navbar navbar-default">
                 <span class="btn btn-primary glyphicon  pull-left" ng-class="Data.status[$index]" aria-hidden="true" data-ng-click='show.showhide($index)'></span>
                 <p class="navbar-text">
@@ -272,7 +272,7 @@
                                 <nav class="navbar navbar-default">
                                     <span class="btn btn-danger glyphicon  pull-left" ng-class="hideCalc.statusCalculation" aria-hidden="true" data-ng-click='hideCalc.showhideCalculation()'></span>
                                     <p class="navbar-text">{{$index+1}}. Kalkulacja ({{proposalSellerList.sellerCode}})</p>
-                                    <span class="navbar-brand glyphicon glyphicon-trash" aria-hidden="true" data-ng-click='removeOfferRetailer($index,$parent.$index)'></span>
+                                    <span class="navbar-brand glyphicon glyphicon-trash" aria-hidden="true" data-ng-click='removeOfferRetailer($index,punktIndex)'></span>
                                 </nav>
                                 <div class="calculation-container" ng-hide='hideCalc.isCalculationHide'>
                                     <article class="col-xs-12">
