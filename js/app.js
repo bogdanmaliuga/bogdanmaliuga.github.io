@@ -3,7 +3,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
 
         /* Resources */
         //Boghan
-        var  getOfferDataForEditionPath= "http://easy-energy.ovh/calc/a/electricityOffer/1.json";
+        var  getOfferDataForEditionPath= "https://easy-energy.ovh/calc/a/electricityOffer/1.json";
         var yesNoTemplatePath = "../templates/yesno.html";
         var savePath = 'https://easy-energy.herokuapp.com/a/electricityOffer.json';
         var calculatePath = 'https://easy-energy.herokuapp.com/a/CalculateElectricityOffer';
