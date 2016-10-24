@@ -142,7 +142,8 @@ article {
   margin: 10px 10px;
 }
 label {
-  background-color: #008000;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
   color: #fff;
   display: block;
   width: 100%;
@@ -231,67 +232,82 @@ span
 }
 .punct-item nav {
   background-color: #ccc;
+  color: #000;
 }
 .punct-item .button-color {
-  background-color: #00f;
+  background-color: #337ab7;
+  border-color: #2e6da4;
   color: #fff;
 }
 .punct-item .fields-color {
-  background-color: #00f;
+  background-color: #337ab7;
+  color: #fff;
 }
 .punct-item .showhide-color {
-  background-color: #00f;
+  background-color: #337ab7;
+  color: #fff;
 }
 .calc-offer {
-  border: 1px solid #800080;
+  border: 1px solid #9055a2;
   border-radius: 4px;
 }
 .calc-offer nav {
   background-color: #ccc;
+  color: #000;
 }
 .calc-offer .button-color {
-  background-color: #800080;
+  background-color: #9055a2;
+  color: #fff;
 }
 .calc-offer .fields-color {
-  background-color: #800080;
+  background-color: #9055a2;
   color: #fff;
 }
 .calc-offer .showhide-color {
-  background-color: #800080;
+  background-color: #9055a2;
+  color: #fff;
 }
 .offers-retailers {
-  border: 1px solid #f00;
+  border: 1px solid #d9534f;
   border-radius: 4px;
 }
 .offers-retailers nav {
   background-color: #ccc;
+  color: #000;
 }
 .offers-retailers .button-color {
-  background-color: #f00;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  color: #fff;
 }
 .offers-retailers .fields-color {
-  background-color: #f00;
+  background-color: #d9534f;
   color: #fff;
 }
 .offers-retailers .showhide-color {
-  background-color: #f00;
+  background-color: #d9534f;
+  color: #fff;
 }
 .summary-info {
-  border: 1px solid #ffa500;
+  border: 1px solid #f0ad4e;
   border-radius: 4px;
 }
 .summary-info nav {
   background-color: #ccc;
+  color: #000;
 }
 .summary-info .button-color {
-  background-color: #ffa500;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+  color: #fff;
 }
 .summary-info .fields-color {
-  background-color: #ffa500;
+  background-color: #f0ad4e;
   color: #fff;
 }
 .summary-info .showhide-color {
-  background-color: #ffa500;
+  background-color: #f0ad4e;
+  color: #fff;
 }
 .calc-offer-out {
   border: 1px solid #800080;
@@ -299,9 +315,11 @@ span
 }
 .calc-offer-out nav {
   background-color: #ccc;
+  color: #000;
 }
 .calc-offer-out .button-color {
   background-color: #800080;
+  color: #fff;
 }
 .calc-offer-out .fields-color {
   background-color: #800080;
@@ -309,4 +327,5 @@ span
 }
 .calc-offer-out .showhide-color {
   background-color: #800080;
+  color: #fff;
 }
