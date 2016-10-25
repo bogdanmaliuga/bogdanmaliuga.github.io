@@ -1,5 +1,5 @@
 angular.module('myApp', ['angularModalService', 'ngAnimate'])
-    .controller('myCtrl', ["$scope", "$http", "ModalService", function($scope, $http, ModalService) {
+    .controller('myCtrl', ["$scope", "$http","$filter","ModalService", function($scope, $http,$filter,ModalService) {
 
         /* Resources */
         //Boghan
@@ -7,19 +7,19 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         var yesNoTemplatePath = "../templates/yesno.html";
         var errorTemplatePath = '../templates/error.html'
         var savePath = 'https://easy-energy.herokuapp.com/a/electricityOffer.json';
-        var calculatePath = 'https://easy-energy.herokuapp.com/a/CalculateElectricityOffer';
+        var calculatePath = 'http://easy-energy.ovh/calc/a/calculateElectricityOffer.json';
         var requestSourceType = 'editOffer';
 
-        /*
-        //Get resources
-        var getOfferDataForEditionPath = pageContext + "/a/electricityOffer/" + offerIdForEdition + ".json";
-        //GET offer data
-        var yesNoTemplatePath = pageContext + '/resources/a/electricityCalculator/templates/yesno.jsp';
-        var errorTemplatePath = pageContext + '/resources/a/electricityCalculator/templates/error.jsp';
-        //POST offer data
-        var savePath = pageContext + '/a/electricityOffer.json';
-        //CALCULATE offer
-        var calculatePath = pageContext + '/a/calculateElectricityOffer.json';*/
+
+        // //Get resources
+        // var getOfferDataForEditionPath = pageContext + "/a/electricityOffer/" + offerIdForEdition + ".json";
+        // //GET offer data
+        // var yesNoTemplatePath = pageContext + '/resources/a/electricityCalculator/templates/yesno.jsp';
+        // var errorTemplatePath = pageContext + '/resources/a/electricityCalculator/templates/error.jsp';
+        // //POST offer data
+        // var savePath = pageContext + '/a/electricityOffer.json';
+        // //CALCULATE offer
+        // var calculatePath = pageContext + '/a/calculateElectricityOffer.json';
 
 
         var sourceTypeEditOffer = 'editOffer';
@@ -40,7 +40,6 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         }
         if (requestSourceType == sourceNewOffer) {
             initNewOffer($scope);
-            convertDate();
         }
 
         function initNewOffer($scope) {
@@ -148,15 +147,11 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
                     'Content-Type': 'application/json'
                 }
             }).success(function(response) {
-
-                if (response.errorCode != null) {
-                    errorModal(response.errorCode, response.message);
-                }
-
                 $scope.content = response;
-
                 convertDate();
+
             }).error(function(error) {
+                if (error.errorCode != null) {errorModal(error.errorCode, error.message);}
 
                 $scope.error = error;
             });
@@ -180,7 +175,8 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
         }
 
         var convertDate = function() {
-            $scope.content.creationDate = new Date($scope.content.creationDate);
+           
+            $scope.content.creationDate = new Date($scope.content.creationDate) ;
             $scope.content.lastEditionDate = new Date($scope.content.lastEditionDate);
 
             angular.forEach($scope.content.receiverPointList, function(receiverPointList) {
@@ -531,7 +527,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
                             if ($scope.content.offerCalculationPerReceiverPointSet == true) {
 
                                 $scope.content.receiverPointList[z].actualNumberOfZones -= 1;
-                                $scope.content.receiverPointList[z].actualZoneList.splice(z, 1);
+                                $scope.content.receiverPointList[z].actualZoneList.splice(-1, 1);
                                 angular.forEach($scope.content.receiverPointList[z].invoiceList, function(value) {
                                     value.invoiceZoneConsumptionList.splice(-1, 1);
                                 });
@@ -547,7 +543,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
 
                                 angular.forEach($scope.content.receiverPointList, function(val) {
                                     val.actualNumberOfZones -= 1;
-                                    val.actualZoneList.splice(z, 1);
+                                    val.actualZoneList.splice(-1, 1);
                                     angular.forEach(val.invoiceList, function(value) {
                                         value.invoiceZoneConsumptionList.splice(-1, 1);
                                     });
