@@ -37,7 +37,7 @@
             <label>Data utworzenia:</label>
         </section>
         <section class="col-xs-2">
-            <input type="date" data-ng-bind="content.creationDate | date:'MM/dd/yyyy'" class="form-control" value='' readonly>
+            <input type="date" data-ng-model="content.creationDate" class="form-control" value='' readonly>
         </section>
         <section class="col-xs-2 ">
             <label>Ostatinia edycja:</label>
@@ -155,7 +155,7 @@
                     </thead>
                     <tbody>
                     <tr data-ng-repeat='invoiceList in receiverPointList.invoiceList'>
-                        <th class='fields-color'>{{$index+1}}</th>
+                        <th>{{$index+1}}</th>
                         <th>
                             <input type="text" class='form-control' data-ng-model='invoiceList.documentNumber' data-ng-disabled="disableFirstSection">
                         </th>
@@ -193,16 +193,16 @@
                         <table class="table table-bordered ">
                             <tbody>
                             <tr>
-                                <th class='fields-color'>Łącznia ilość dni na podstawie zakresów</th>
+                                <th >Łącznia ilość dni na podstawie zakresów</th>
                                 <th>
                                     {{receiverPointList.receiverPointOfferCalculation.totalConsumptionSummary.totalNumberOfDaysForAllPeriods}}</th>
                             </tr>
                             <tr>
-                                <th class='fields-color'>Łączna ilość kwH w podanych zakresach</th>
+                                <th>Łączna ilość kwH w podanych zakresach</th>
                                 <th>{{receiverPointList.receiverPointOfferCalculation.totalConsumptionSummary.totalElectricityUnitsConsumptionInAllPeriods}}</th>
                             </tr>
                             <tr>
-                                <th class='fields-color'>Szacowane zużycie roczne w Mwh</th>
+                                <th>Szacowane zużycie roczne w Mwh</th>
                                 <th>{{receiverPointList.receiverPointOfferCalculation.totalConsumptionSummary.predictedElectricityUnitConsumptionPerYear}}</th>
                             </tr>
                             </tbody>
@@ -219,7 +219,7 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <th class='fields-color'>Aktualne ceny za kWH</th>
+                                <th >Aktualne ceny za kWH</th>
                                 <th data-ng-repeat='actualZoneFeeList in receiverPointList.receiverPointOfferCalculation.actualReceiverPointFees.actualZoneFeeList'>
                                     <input type="number" class='form-control' data-ng-model='actualZoneFeeList.actualUnitPrice' data-ng-disabled='disableActualPrice'>
                                 </th>
@@ -264,7 +264,7 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <th class='fields-color'>Domyślna oferowana cena:</th>
+                                <th >Domyślna oferowana cena:</th>
                                 <th data-ng-repeat='defaultZoneParamsList in receiverPointList.receiverPointOfferCalculation.offerParameters.defaultZoneParamsList'>
                                     <input data-ng-disabled='disableParametersOffer' type="number" class='form-control' data-ng-model='defaultZoneParamsList.defaultUnitPrice'>
                                 </th>
@@ -325,19 +325,19 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <th class='fields-color'>Cena Operatora z cennika</th>
+                                        <th>Cena Operatora z cennika</th>
                                         <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
                                             <input type="number" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.sellerMinimalUnitPrice'>
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th class='fields-color'>Oferowana cena / MWh (some description)</th>
+                                        <th >Oferowana cena / MWh (some description)</th>
                                         <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
                                             <input type="number" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.proposalUnitPrice'>
                                         </th>
                                     </tr>
                                     <%--  <tr>
-                                        <th class='fields-color'>Nazwa oferowanej strefy (some description)</th>
+                                        <th>Nazwa oferowanej strefy (some description)</th>
                                         <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
                                             <input type="text" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.proposalZoneCode'>
                                         </th>
@@ -424,7 +424,7 @@
     <!-- End Punct Item -->
     <article class="col-xs-12 no-padding">
         <section class="col-xs-2 no-padding">
-            <label>Dodaj punkt odbioru:</label>
+            <label class='color-blue'>Dodaj punkt odbioru:</label>
         </section>
         <section class="col-xs-2">
             <span class="btn btn-default glyphicon glyphicon-plus-sign" data-ng-click='addPunctItem()' aria-hidden="true"></span>

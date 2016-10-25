@@ -84,6 +84,9 @@ ul {
   border-radius: 4px;
   overflow: hidden;
 }
+.punct-item table {
+  border: none;
+}
 .checkbox {
   margin-left: 10px;
 }
@@ -221,8 +224,11 @@ label {
   margin: 0;
   width: 100%;
 }
+.color-blue {
+  background-color: #337ab7;
+}
 .punct-item {
-  border-color: #00f;
+  border-color: #337ab7;
 }
 .punct-item nav {
   background-color: #f8f8f8;
