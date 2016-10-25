@@ -443,16 +443,16 @@
                     <table class="table table-bordered ">
                         <tbody>
                         <tr>
-                            <th class='fields-color'>Łącznia ilość dni na podstawie zakresów</th>
+                            <th >Łącznia ilość dni na podstawie zakresów</th>
                             <th>
                                 {{content.allReceiverPointsOfferCalculation.totalConsumptionSummary.totalNumberOfDaysForAllPeriods}}</th>
                         </tr>
                         <tr>
-                            <th class='fields-color'>Łączna ilość kwH w podanych zakresach</th>
+                            <th >Łączna ilość kwH w podanych zakresach</th>
                             <th>{{content.allReceiverPointsOfferCalculation.totalConsumptionSummary.totalElectricityUnitsConsumptionInAllPeriods}}</th>
                         </tr>
                         <tr>
-                            <th class='fields-color'>Szacowane zużycie roczne w Mwh</th>
+                            <th>Szacowane zużycie roczne w Mwh</th>
                             <th>{{content.allReceiverPointsOfferCalculation.totalConsumptionSummary.predictedElectricityUnitConsumptionPerYear}}</th>
                         </tr>
                         </tbody>
@@ -469,7 +469,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <th class='fields-color'>Aktualne ceny za kWH</th>
+                            <th >Aktualne ceny za kWH</th>
                             <th data-ng-repeat='actualZoneFeeList in content.allReceiverPointsOfferCalculation.actualReceiverPointFees.actualZoneFeeList'>
                                 <input type="number" class='form-control' data-ng-model='actualZoneFeeList.actualUnitPrice' data-ng-disabled='disableActualPrice'>
                             </th>
@@ -516,7 +516,7 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <th class='fields-color'>Domyślna oferowana cena:</th>
+                                <th>Domyślna oferowana cena:</th>
                                 <th data-ng-repeat='defaultZoneParamsList in content.allReceiverPointsOfferCalculation.offerParameters.defaultZoneParamsList'>
                                     <input data-ng-disabled='disableParametersOffer' type="number" class='form-control' data-ng-model='defaultZoneParamsList.defaultUnitPrice'>
                                 </th>
@@ -579,19 +579,19 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <th class='fields-color'>Cena Operatora z cennika</th>
+                                    <th >Cena Operatora z cennika</th>
                                     <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
                                         <input type="number" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.sellerMinimalUnitPrice'>
                                     </th>
                                 </tr>
                                 <tr>
-                                    <th class='fields-color'>Oferowana cena / MWh (some description)</th>
+                                    <th >Oferowana cena / MWh (some description)</th>
                                     <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
                                         <input type="number" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.proposalUnitPrice'>
                                     </th>
                                 </tr>
                                 <%-- <tr>
-                                    <th class='fields-color'>Nazwa oferowanej strefy (some description)</th>
+                                    <th >Nazwa oferowanej strefy (some description)</th>
                                     <th data-ng-repeat='proposalZoneDetailsList in proposalSellerList.proposalZoneDetailsList'>
                                         <input type="text" data-ng-disabled='disableCalculationOffer' class='form-control' data-ng-model='proposalZoneDetailsList.proposalZoneCode'>
                                     </th>
@@ -663,9 +663,9 @@
                         </article>
                     </div>
                 </article>
-                <article class="col-xs-12 no-padding">
+                <article class="col-xs-12 ">
                     <section class="col-xs-2 no-padding">
-                        <label>Dodaj sprzedawcę</label>
+                        <label class='fields-color'>Dodaj sprzedawcę</label>
                     </section>
                     <section class="col-xs-2">
                         <span class="btn btn-default glyphicon glyphicon-plus-sign" data-ng-click='addCalculationOfferPoints($index)' aria-hidden="true"></span>
