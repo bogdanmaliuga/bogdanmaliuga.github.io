@@ -1,4 +1,4 @@
-angular.module('myApp', ['angularModalService', 'ngAnimate'])
+angular.module('myApp', ['angularModalService', 'ngAnimate','ui.bootstrap'])
     .controller('myCtrl', ["$scope", "$http","$filter","ModalService", function($scope, $http,$filter,ModalService) {
 
         /* Resources */
@@ -35,7 +35,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
                 }
             }).then(function(response) {
                 $scope.content = response.data;
-                convertDate();
+                
             });
         }
         if (requestSourceType == sourceNewOffer) {
@@ -110,8 +110,9 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
 
         //POST DATA
         $scope.sendData = function() {
+            
+           convertDateFromObject();
 
-            convertDateFromObject();
 
             $http({
                 method: 'POST',
@@ -126,18 +127,18 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
                     errorModal(response.errorCode, response.message);
                 }
                 $scope.content = response;
-                convertDate();
+             
             }).error(function(error) {
                 $scope.error = error;
             });
-            convertDate();
+           
         };
 
         //CALCULATE DATA
         $scope.sendCalculation = function() {
 
             convertDateFromObject();
-
+            console.log($scope.content);
             $http({
                 method: 'POST',
                 dataType: 'json',
@@ -148,14 +149,14 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
                 }
             }).success(function(response) {
                 $scope.content = response;
-                convertDate();
+               
 
             }).error(function(error) {
                 if (error.errorCode != null) {errorModal(error.errorCode, error.message);}
 
                 $scope.error = error;
             });
-            convertDate();
+         
 
         };
         var errorModal = function(errorCode, message) {
@@ -173,29 +174,6 @@ angular.module('myApp', ['angularModalService', 'ngAnimate'])
                 });
             });
         }
-
-        var convertDate = function() {
-           
-            $scope.content.creationDate = new Date($scope.content.creationDate) ;
-            $scope.content.lastEditionDate = new Date($scope.content.lastEditionDate);
-
-            angular.forEach($scope.content.receiverPointList, function(receiverPointList) {
-                angular.forEach(receiverPointList.invoiceList, function(invoiceList) {
-                    invoiceList.periodStart = new Date(invoiceList.periodStart);
-                    invoiceList.getPeriodStop = new Date(invoiceList.getPeriodStop);
-                });
-
-                if ($scope.content.offerCalculationPerReceiverPointSet == true) {
-                    angular.forEach(receiverPointList.receiverPointOfferCalculation.proposalSellerList, function(proposalSellerList) {
-                        proposalSellerList.sellerTariffPublicationDate = new Date(proposalSellerList.sellerTariffPublicationDate);
-                    });
-
-                } else if ($scope.content.offerCalculationPerReceiverPointSet == false) {
-
-                }
-
-            });
-        };
 
         var convertDateFromObject = function() {
             $scope.content.creationDate = +new Date($scope.content.creationDate);
