@@ -9,8 +9,8 @@ angular.module('myApp', ['angularModalService', 'ngAnimate','ui.bootstrap'])
         var savePath = 'https://easy-energy.herokuapp.com/a/electricityOffer.json';
         var calculatePath = 'http://easy-energy.ovh/calc/a/calculateElectricityOffer.json';
         var requestSourceType = 'editOffer';
-
-
+        var aviableSellersPath='../data/sellers.json'
+       
         // //Get resources
         // var getOfferDataForEditionPath = pageContext + "/a/electricityOffer/" + offerIdForEdition + ".json";
         // //GET offer data
@@ -20,10 +20,23 @@ angular.module('myApp', ['angularModalService', 'ngAnimate','ui.bootstrap'])
         // var savePath = pageContext + '/a/electricityOffer.json';
         // //CALCULATE offer
         // var calculatePath = pageContext + '/a/calculateElectricityOffer.json';
-
+        // var aviableSellersPath= pageContext +  '/a/calculateElectricityOffer/availableSellers.json'
 
         var sourceTypeEditOffer = 'editOffer';
         var sourceNewOffer = 'newOffer';
+    
+        //Get aviableSellers
+        $http({
+                method: 'GET',
+                url: aviableSellersPath,
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                }
+            }).then(function(response) {
+                  $scope.aviableSellers = response.data;
+
+         });
+
 
         //GET DATA
         if (requestSourceType == sourceTypeEditOffer) {
@@ -41,6 +54,8 @@ angular.module('myApp', ['angularModalService', 'ngAnimate','ui.bootstrap'])
         if (requestSourceType == sourceNewOffer) {
             initNewOffer($scope);
         }
+
+       
 
         function initNewOffer($scope) {
             $scope.content = {
@@ -84,17 +99,17 @@ angular.module('myApp', ['angularModalService', 'ngAnimate','ui.bootstrap'])
                             "defaultZoneCodesSameAsActual": false
                         },
                         "proposalSellerList": [{
-                            "sellerCode": "new Seller Code",
+                            "sellerCode": "Nazwa sprzedawcy",
                             "proposalTradeFee": 0,
                             "sellerTariffPublicationDate": new Date(),
                             "proposalZoneDetailsList": [{
                                 "actualZoneCode": "Strefa 1",
                                 "sellerMinimalUnitPrice": 0,
                                 "proposalUnitPrice": 0,
-                                "proposalZoneCode": "Strefa 1 od new Seller Code"
+                                "proposalZoneCode": "Strefa 1 od Nazwa sprzedawcy"
                             }],
                             "receiverPointEstimation": {
-                                "sellerCode": "new Seller Code",
+                                "sellerCode": "Nazwa sprzedawcy",
                                 "receiverPointDataEstimation": {},
                                 "receiverPointProvisionList": []
                             }
@@ -138,7 +153,7 @@ angular.module('myApp', ['angularModalService', 'ngAnimate','ui.bootstrap'])
         $scope.sendCalculation = function() {
 
             convertDateFromObject();
-            console.log($scope.content);
+            
             $http({
                 method: 'POST',
                 dataType: 'json',

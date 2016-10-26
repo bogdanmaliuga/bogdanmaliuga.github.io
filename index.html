@@ -26,7 +26,7 @@
     <div class="container">
         <article class='col-xs-12 no-padding'>
             <section class="col-xs-2 no-padding">
-                <label>Nazva ofertu</label>
+                <label>Systemowy numer oferty:</label>
             </section>
             <section class="col-xs-2">
                 <input type="number" data-ng-model='content.offerNumber' class="form-control" readonly>
@@ -160,7 +160,7 @@
                                 <th>
                                 
                                   <p class="input-group">
-                                     <input  data-ng-disabled="disableFirstSection" type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="invoiceList.periodStart" is-open="opened[$index]"  datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                     <input  data-ng-disabled="disableFirstSection" type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="invoiceList.periodStart" is-open="opened[$index]"  datepicker-options="dateOptions" ng-required="true" close-text="Zamknąć" alt-input-formats="altInputFormats" />
                                      <span class="input-group-btn">
                                      <button data-ng-disabled="disableFirstSection" type="button" class="btn btn-default" ng-click="open($index)"><i class="glyphicon glyphicon-calendar"></i></button>
                                      </span>
@@ -169,7 +169,7 @@
                                 <th>
                                     
                                       <p class="input-group">
-                                     <input  data-ng-disabled="disableFirstSection" type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="invoiceList.getPeriodStop" is-open="opened2[$index]"  datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                     <input  data-ng-disabled="disableFirstSection" type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="invoiceList.getPeriodStop" is-open="opened2[$index]"  datepicker-options="dateOptions" ng-required="true" close-text="Zamknąć" alt-input-formats="altInputFormats" />
                                      <span class="input-group-btn">
                                      <button data-ng-disabled="disableFirstSection" type="button" class="btn btn-default" ng-click="open2($index)"><i class="glyphicon glyphicon-calendar"></i></button>
                                      </span>
@@ -258,15 +258,15 @@
                             <section class="col-xs-2">
                                 <input data-ng-disabled='disableParametersOffer' type="number" data-ng-model='receiverPointList.receiverPointOfferCalculation.offerParameters.proposalContractMonthLength' class="form-control">
                             </section>
-                            <section class="col-xs-3 no-padding">
+                            <!--<section class="col-xs-3 no-padding">
                                 <label class='fields-color'>Domyślna oferowana opłata handlowa:</label>
                             </section>
                             <section class="col-xs-2">
 
                                 <input data-ng-disabled='disableParametersOffer' type="number" data-ng-model='receiverPointList.receiverPointOfferCalculation.offerParameters.defaultProposalTradeFee' class="form-control">
-                            </section>
+                            </section>-->
                         </article>
-                        <section class="col-xs-12">
+                       <!-- <section class="col-xs-12">
                             <table class="table table-bordered ">
                                 <thead>
                                     <tr>
@@ -283,7 +283,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </section>
+                        </section>-->
                         <article class="buttons col-xs-12">
                             <button class="btn button-color pull-right" data-ng-model='disableParametersOffer' data-ng-click='disableParametersSection()'>Zatwierdź sekcję</button>
                             <button class="btn button-color pull-right" data-ng-click='enableParametersSection()'>Edytuj sekcję</button>
@@ -299,7 +299,10 @@
                         <article class="offers-retailers-item" data-ng-repeat='proposalSellerList in receiverPointList.receiverPointOfferCalculation.proposalSellerList' ng-controller='ShowHideCalculationCtrl as hideCalc'>
                             <nav class="navbar navbar-default">
                                 <span class="btn button-color glyphicon  pull-left" ng-class="hideCalc.statusCalculation" aria-hidden="true" data-ng-click='hideCalc.showhideCalculation()'></span>
-                                <p class="navbar-text">{{$index+1}}. Kalkulacja ({{proposalSellerList.sellerCode}})</p>
+                                <p class="navbar-text">{{$index+1}}. Kalkulacja ({{proposalSellerList.sellerCode}})
+
+
+                                </p>
                                 <span class="navbar-brand glyphicon glyphicon-trash" aria-hidden="true" data-ng-click='removeOfferRetailer($index,punktIndex)'></span>
                             </nav>
                             <div class="calculation-container" ng-hide='hideCalc.isCalculationHide'>
@@ -307,8 +310,12 @@
                                     <section class="col-xs-2 no-padding">
                                         <label class='fields-color'>Nazwa sprzedawcy:</label>
                                     </section>
-                                    <section class="col-xs-2">
-                                        <input type="text" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.sellerCode' class="form-control">
+                                    <section class="col-xs-3">
+                                            <select class='form-control' ng-model="proposalSellerList.sellerCode" data-ng-disabled='disableCalculationOffer' ng-init='sellerCode1=proposalSellerList.sellerCode'>
+                                            <option>{{sellerCode1}}</option>
+                                             <option ng-repeat="item in aviableSellers" value="{{item}}">{{item}}</option>
+                                        </select>
+                                       
                                     </section>
                                     <section class="col-xs-3 no-padding">
                                         <label class='fields-color'>Data aktualizacji cennika taryfy:</label>
@@ -317,7 +324,7 @@
                                       
 
                                          <p class="input-group" data-ng-disabled='disableCalculationOffer'>
-                                     <input type="text"  data-ng-disabled='disableCalculationOffer' class="form-control" uib-datepicker-popup="{{format}}" ng-model="proposalSellerList.sellerTariffPublicationDate" is-open="opened3[$index]"  datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                     <input type="text"  data-ng-disabled='disableCalculationOffer' class="form-control" uib-datepicker-popup="{{format}}" ng-model="proposalSellerList.sellerTariffPublicationDate" is-open="opened3[$index]"  datepicker-options="dateOptions" ng-required="true" close-text="Zamknąć" alt-input-formats="altInputFormats" />
                                      <span class="input-group-btn">
                                      <button type="button" data-ng-disabled='disableCalculationOffer' class="btn btn-default" ng-click="open3($index)"><i class="glyphicon glyphicon-calendar"></i></button>
                                      </span>
@@ -365,7 +372,7 @@
                                     </table>
                                 </article>
                                 <section class="buttons col-xs-12">
-                                    <button class="btn button-color pull-right" data-ng-click='sendCalculation()'>Wylicz ofertę</button>
+                                    <button class="btn button-color-calculate pull-right" data-ng-click='sendCalculation()'>Wylicz ofertę</button>
                                     <button class="btn button-color pull-right" data-ng-model='disableCalculationOffer' data-ng-click='disableCalculationSection()'>Zatwierdź sekcję</button>
                                     <button class="btn button-color pull-right" data-ng-click='enableCalculationSection()'>Edytuj sekcję</button>
                                 </section>
@@ -373,12 +380,12 @@
                                     <table class="table table-bordered table-striped col-xs-12 ">
                                         <thead>
                                             <tr>
-                                                <th>Na podstawienie cennika z dnia</th>
-                                                <th>Szacowana masa marży dla całej umowy</th>
-                                                <th>Szacowana masa marży w skali roku</th>
-                                                <th>Szacowana oszczędność w skali roku</th>
-                                                <th>Szacowana oszczędność w skali umowy</th>
-                                                <th>Oszczędność w ujęciu procentowym</th>
+                                                <th class="fields-color">Na podstawienie cennika z dnia</th>
+                                                <th class="fields-color">Szacowana masa marży dla całej umowy</th>
+                                                <th class="fields-color">Szacowana masa marży w skali roku</th>
+                                                <th class="fields-color">Szacowana oszczędność w skali roku</th>
+                                                <th class="fields-color">Szacowana oszczędność w skali umowy</th>
+                                                <th class="fields-color">Oszczędność w ujęciu procentowym</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -406,13 +413,12 @@
                                     </table>
                                 </article>
                                 <article class="col-xs-12">
-                                    <table class="table table-bordered table-striped col-xs-12 ">
+                                    <table class="table table-bordered table-striped col-xs-12 " ng-hide="proposalSellerList.receiverPointEstimation.receiverPointProvisionList.length==0">
                                         <thead>
                                             <tr>
                                                 <th class='fields-color'>Pułap</th>
                                                 <th class='fields-color'>Prowizja roczna</th>
-                                                <th class='fields-color'>
-                                                    Prowizja z umowy</th>
+                                                <th class='fields-color'>Prowizja z umowy</th>
                                                 <th class='fields-color'>Prowizja Partnera z umowy</th>
                                             </tr>
                                         </thead>
@@ -430,7 +436,7 @@
                         </article>
                         <article class="col-xs-12 ">
                             <section class="col-xs-2 no-padding">
-                                <label class='fields-color'>Dodaj sprzedawcę</label>
+                                <label class='btn-addSeller'>Dodaj sprzedawcę</label>
                             </section>
                             <section class="col-xs-2">
                                 <span class="btn btn-default glyphicon glyphicon-plus-sign" data-ng-click='addCalculationOffer($index)' aria-hidden="true"></span>
@@ -517,14 +523,14 @@
                             <section class="col-xs-2">
                                 <input data-ng-disabled='disableParametersOffer' type="number" data-ng-model='content.allReceiverPointsOfferCalculation.offerParameters.defaultProposalTradeFee' class="form-control">
                             </section>
-                            <section class="col-xs-3 no-padding">
+                           <!-- <section class="col-xs-3 no-padding">
                                 <label class='fields-color'>Domyślna oferowana opłata handlowa:</label>
                             </section>
                             <section class="col-xs-2">
                                 <input data-ng-disabled='disableParametersOffer' type="number" data-ng-model='content.allReceiverPointsOfferCalculation.offerParameters.proposalContractMonthLength' class="form-control">
-                            </section>
+                            </section>-->
                         </article>
-                        <section class="col-xs-12">
+                        <!--<section class="col-xs-12">
                             <table class="table table-bordered ">
                                 <thead>
                                     <tr>
@@ -542,7 +548,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </section>
+                        </section>-->
                         <article class="buttons col-xs-12">
                             <button class="btn button-color pull-right" data-ng-model='disableParametersOffer' data-ng-click='disableParametersSection()'>Zatwierdź sekcję</button>
                             <button class="btn button-color pull-right" data-ng-click='enableParametersSection()'>Edytuj sekcję</button>
@@ -568,8 +574,12 @@
                                 <section class="col-xs-2 no-padding">
                                     <label class='fields-color'>Nazwa sprzedawcy:</label>
                                 </section>
-                                <section class="col-xs-2">
-                                    <input type="text" data-ng-disabled='disableCalculationOffer' data-ng-model='proposalSellerList.sellerCode' class="form-control">
+                                <section class="col-xs-3">
+                                       <select class='form-control' ng-model="proposalSellerList.sellerCode" data-ng-disabled='disableCalculationOffer' ng-init="sellerCode2=proposalSellerList.sellerCode">
+                                            <option >{{sellerCode2}}</option>
+                                             <option ng-repeat="item in aviableSellers" value="{{item}}">{{item}}</option>
+                                        </select>
+                                    
                                 </section>
                                 <section class="col-xs-3 no-padding">
                                     <label class='fields-color'>Data aktualizacji cennika taryfy:</label>
@@ -577,7 +587,7 @@
                                 <section class="col-xs-2">
                                     
                                          <p class="input-group" data-ng-disabled='disableCalculationOffer'>
-                                     <input data-ng-disabled='disableCalculationOffer' type="text"  data-ng-disabled='disableCalculationOffer' class="form-control" uib-datepicker-popup="{{format}}" ng-model="proposalSellerList.sellerTariffPublicationDate" is-open="opened4[$index]"  datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                                     <input data-ng-disabled='disableCalculationOffer' type="text"  data-ng-disabled='disableCalculationOffer' class="form-control" uib-datepicker-popup="{{format}}" ng-model="proposalSellerList.sellerTariffPublicationDate" is-open="opened4[$index]"  datepicker-options="dateOptions" ng-required="true" close-text="Zamknąć" alt-input-formats="altInputFormats" />
                                      <span class="input-group-btn">
                                      <button data-ng-disabled='disableCalculationOffer' type="button" data-ng-disabled='disableCalculationOffer' class="btn btn-default" ng-click="open4($index)"><i class="glyphicon glyphicon-calendar"></i></button>
                                      </span>
@@ -625,7 +635,7 @@
                                 </table>
                             </article>
                             <section class="buttons col-xs-12">
-                                <button class="btn button-color pull-right" data-ng-click='sendCalculation()'>Wylicz ofertę</button>
+                                <button class="btn button-color-calculate pull-right" data-ng-click='sendCalculation()'>Wylicz ofertę</button>
                                 <button class="btn button-color pull-right" data-ng-model='disableCalculationOffer' data-ng-click='disableCalculationSection()'>Zatwierdź sekcję</button>
                                 <button class="btn button-color pull-right" data-ng-click='enableCalculationSection()'>Edytuj sekcję</button>
                             </section>
@@ -633,12 +643,12 @@
                                 <table class="table table-bordered table-striped col-xs-12 ">
                                     <thead>
                                         <tr>
-                                            <th>Na podstawienie cennika z dnia</th>
-                                            <th>Szacowana masa marży dla całej umowy</th>
-                                            <th>Szacowana masa marży w skali roku</th>
-                                            <th>Szacowana oszczędność w skali roku</th>
-                                            <th>Szacowana oszczędność w skali umowy</th>
-                                            <th>Oszczędność w ujęciu procentowym</th>
+                                            <th class="fields-color">Na podstawienie cennika z dnia</th>
+                                            <th class="fields-color">Szacowana masa marży dla całej umowy</th>
+                                            <th class="fields-color">Szacowana masa marży w skali roku</th>
+                                            <th class="fields-color">Szacowana oszczędność w skali roku</th>
+                                            <th class="fields-color">Szacowana oszczędność w skali umowy</th>
+                                            <th class="fields-color">Oszczędność w ujęciu procentowym</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -666,13 +676,13 @@
                                 </table>
                             </article>
                             <article class="col-xs-12">
-                                <table class="table table-bordered table-striped col-xs-12 ">
+                            
+                                <table class="table table-bordered table-striped col-xs-12 " ng-hide='proposalSellerList.receiverPointEstimation.receiverPointProvisionList.length==0'>
                                     <thead>
                                         <tr>
                                             <th class='fields-color'>Pułap</th>
                                             <th class='fields-color'>Prowizja roczna</th>
-                                            <th class='fields-color'>
-                                                Prowizja z umowy</th>
+                                            <th class='fields-color'>Prowizja z umowy</th>
                                             <th class='fields-color'>Prowizja Partnera z umowy</th>
                                         </tr>
                                     </thead>
@@ -690,7 +700,7 @@
                     </article>
                     <article class="col-xs-12 ">
                         <section class="col-xs-2 no-padding">
-                            <label class='fields-color'>Dodaj sprzedawcę</label>
+                            <label class='btn-addSeller'>Dodaj sprzedawcę</label>
                         </section>
                         <section class="col-xs-2">
                             <span class="btn btn-default glyphicon glyphicon-plus-sign" data-ng-click='addCalculationOfferPoints($index)' aria-hidden="true"></span>
@@ -714,19 +724,19 @@
                         <table class="table table-bordered table-striped col-xs-12 ">
                             <thead>
                                 <tr>
-                                    <th>Na podstawienie cennika z dnia</th>
-                                    <th>Szacowana masa marży dla wszystkich punktów</th>
-                                    <th>Szacowana całkowita masa marży w skali roku</th>
-                                    <th>Szacowana oszczędność w skali roku dla wszystkich punktów</th>
-                                    <th>Szacowana oszczędność w skali umowy</th>
-                                    <th>Oszczędność w ujęciu procentowym dla wszystkich punktów</th>
+                                    <!--<th>Na podstawienie cennika z dnia</th>-->
+                                    <th class="fields-color">Szacowana masa marży dla wszystkich punktów</th>
+                                    <th class="fields-color">Szacowana całkowita masa marży w skali roku</th>
+                                    <th class="fields-color">Szacowana oszczędność w skali roku dla wszystkich punktów</th>
+                                    <th class="fields-color">Szacowana oszczędność w skali umowy</th>
+                                    <th class="fields-color">Oszczędność w ujęciu procentowym dla wszystkich punktów</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th>
+                                   <!-- <th>
                                         {{receiverPointEstimationList.allReceiverPointsDataEstimationForSeller.tariffIssueDate | date:'dd/MM/yyyy'}}
-                                    </th>
+                                    </th>-->
                                     <th>
                                         {{receiverPointEstimationList.allReceiverPointsDataEstimationForSeller.estimatedContractValueForAllPoint}}
                                     </th>
@@ -746,9 +756,10 @@
                             </tbody>
                         </table>
                     </section>
-                    <h2 class='fields-color'>Prowizje z punktu odbioru</h2>
+                    <h2 class='fields-color' ng-hide="receiverPointEstimationList.allReceiverPointsProvisionForSellerList.length==0">Prowizje z punktu odbioru</h2>
                     <article class="col-xs-12">
-                        <table class="table table-bordered table-striped col-xs-12 ">
+
+                        <table class="table table-bordered table-striped col-xs-12 " ng-hide="receiverPointEstimationList.allReceiverPointsProvisionForSellerList.length==0">
                             <thead>
                                 <tr>
                                     <th class='fields-color'>Pułap</th>
@@ -780,14 +791,14 @@
         </article>
         <!-- End Comment -->
         <article class="col-xs-12 no-padding">
-            <button class="btn btn-success pull-right" data-ng-click='sendData()'>Zapisz ofertę</button>
+            <button class="btn btn-save pull-right" data-ng-click='sendData()'>Zapisz ofertę</button>
         </article>
     </div>
     <script src="js/lib/angular.min.js"></script>
     <script src="js/lib/angular-animate.min.js"></script>
+    <script src='js/lib/angular-locale_pl-pl.js'></script>
     <script src="js/services/angular-modal-service.js"></script>
     <script src='js/lib/ui-bootstrap-tpls-2.2.0.min.js'></script>
-
     <script src="js/app.js"></script>
     <script src='js/services/closeservice.js'></script>
     <script src='js/controllers/dateFormatConroller.js'></script>
@@ -801,6 +812,7 @@
 <!--
 <script src="${pageContext.request.contextPath}/resources/a/electricityCalculator/js/lib/angular.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/a/electricityCalculator/js/lib/angular-animate.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/a/electricityCalculator/js/lib//angular-locale_pl-pl.js"></script>
 <script src="${pageContext.request.contextPath}/resources/a/electricityCalculator/js/services/angular-modal-service.js"></script>
 <script src='${pageContext.request.contextPath}/resources/a/electricityCalculator/js/lib/ui-bootstrap-tpls-2.2.0.min.js'></script>
 <script src="${pageContext.request.contextPath}/resources/a/electricityCalculator/js/app.js"></script>

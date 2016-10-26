@@ -6,7 +6,7 @@ app.controller('ErrorController', ['$scope', 'errorCode','message','close', func
  	  close(result, 500); // close, but give 500ms for bootstrap to animate
   };
 
-  $scope.errorCode= errorCode;
+  $scope.errorCode= "Błąd";
   $scope.message=message;
 
 

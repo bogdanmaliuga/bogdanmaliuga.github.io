@@ -6,7 +6,8 @@ label,
 span,
 input[type="text"],
 input[type="number"],
-input[type='date'] {
+input[type='date'],
+select {
   height: 24px !important;
   font-size: 10px !important;
 }
@@ -94,7 +95,7 @@ ul {
   float: right;
 }
 .punct-item {
-  border: 1px solid #00f;
+  border: 2px solid #00628b;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -159,8 +160,8 @@ article {
   margin: 10px 10px;
 }
 label {
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #00628b;
+  border-color: #00628b;
   color: #fff;
   display: block;
   width: 100%;
@@ -178,7 +179,7 @@ label {
   margin: 0 10px;
 }
 .calc-offer-out {
-  border: 1px solid #00f;
+  border: 1px solid #00628b;
   border-radius: 4px;
 }
 .calc-offer h2,
@@ -239,7 +240,7 @@ label {
   width: 100%;
 }
 .color-blue {
-  background-color: #337ab7;
+  background-color: #00628b;
 }
 .punct-item {
   border-color: #337ab7;
@@ -249,20 +250,20 @@ label {
   border-color: #e7e7e7;
 }
 .punct-item .button-color {
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #72b095;
+  border-color: #72b095;
   color: #fff;
 }
 .punct-item .fields-color {
-  background-color: #337ab7;
+  background-color: #00628b;
   color: #fff;
 }
 .punct-item .showhide-color {
-  background-color: #337ab7;
+  background-color: #00628b;
   color: #fff;
 }
 .calc-offer {
-  border: 1px solid #9055a2;
+  border: 2px solid #65754d;
   border-radius: 4px;
 }
 .calc-offer nav {
@@ -270,19 +271,19 @@ label {
   border-color: #e7e7e7;
 }
 .calc-offer .button-color {
-  background-color: #9055a2;
+  background-color: #72b095;
   color: #fff;
 }
 .calc-offer .fields-color {
-  background-color: #9055a2;
+  background-color: #00628b;
   color: #fff;
 }
 .calc-offer .showhide-color {
-  background-color: #9055a2;
+  background-color: #00628b;
   color: #fff;
 }
 .offers-retailers {
-  border: 1px solid #d9534f;
+  border: 2px solid #d13f31;
   border-radius: 4px;
 }
 .offers-retailers nav {
@@ -290,20 +291,25 @@ label {
   border-color: #e7e7e7;
 }
 .offers-retailers .button-color {
-  background-color: #d9534f;
-  border-color: #d43f3a;
+  background-color: #72b095;
+  border-color: #72b095;
   color: #fff;
 }
 .offers-retailers .fields-color {
-  background-color: #d9534f;
+  background-color: #00628b;
   color: #fff;
 }
 .offers-retailers .showhide-color {
-  background-color: #d9534f;
+  background-color: #00628b;
+  color: #fff;
+}
+.offers-retailers .button-color-calculate {
+  background-color: #2d6c6c;
+  border-color: #2d6c6c;
   color: #fff;
 }
 .summary-info {
-  border: 1px solid #f0ad4e;
+  border: 2px solid #2d6c6c;
   border-radius: 4px;
 }
 .summary-info nav {
@@ -311,20 +317,20 @@ label {
   border-color: #e7e7e7;
 }
 .summary-info .button-color {
-  background-color: #f0ad4e;
-  border-color: #eea236;
+  background-color: #2d6c6c;
+  border-color: #2d6c6c;
   color: #fff;
 }
 .summary-info .fields-color {
-  background-color: #f0ad4e;
+  background-color: #2d6c6c;
   color: #fff;
 }
 .summary-info .showhide-color {
-  background-color: #f0ad4e;
+  background-color: #2d6c6c;
   color: #fff;
 }
 .calc-offer-out {
-  border: 1px solid #800080;
+  border: 2px solid #00628b;
   border-radius: 4px;
 }
 .calc-offer-out nav {
@@ -332,14 +338,24 @@ label {
   border-color: #e7e7e7;
 }
 .calc-offer-out .button-color {
-  background-color: #800080;
+  background-color: #00628b;
   color: #fff;
 }
 .calc-offer-out .fields-color {
-  background-color: #800080;
+  background-color: #00628b;
   color: #fff;
 }
 .calc-offer-out .showhide-color {
-  background-color: #800080;
+  background-color: #00628b;
+  color: #fff;
+}
+.btn-save {
+  background-color: #2d6c6c;
+  border-color: #2d6c6c;
+  color: #fff;
+}
+.btn-addSeller {
+  background-color: #72b095;
+  border-color: #72b095;
   color: #fff;
 }
