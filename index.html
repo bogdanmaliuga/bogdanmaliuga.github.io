@@ -1,100 +1,12 @@
-<!doctype html>
-<html ng-app="myApp">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
-
-<body ng-controller="PaginationDemoCtrl">
-    <div class="container">
-        <div class="row">
-            <div class="panel-top">
-                <div class="col-xs-10 col-sm-2">
-                    <div class="form-group">
-                        <label for="sel1">Items per page</label>
-                      
-                        <select class="form-control"  ng-model="size" 
-                                ng-options="o as o for o in per" ng-change="update()">
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>
-                                <a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse"> id 
-                                 <span ng-show="sortType == 'id' && !sortReverse" class="fa fa-caret-down"></span>
-                                 <span ng-show="sortType == 'id' && sortReverse" class="fa fa-caret-up"></span>
-                              </a>
-                            </th>
-                            <th>
-                                <a href="#" ng-click="sortType = 'productCode'; sortReverse = !sortReverse">productCode
-                                 <span ng-show="sortType == 'productCode' && !sortReverse" class="fa fa-caret-down"></span>
-                                 <span ng-show="sortType == 'productCode' && sortReverse" class="fa fa-caret-up"></span>
-                              </a>
-                            </th>
-                            <th>
-                                <a href="#" ng-click="sortType = 'lastEdition'; sortReverse = !sortReverse">lastEdition
-                                 <span ng-show="sortType == 'lastEdition' && !sortReverse" class="fa fa-caret-down"></span>
-                                 <span ng-show="sortType == 'lastEdition' && sortReverse" class="fa fa-caret-up"></span>
-                              </a>
-                            </th>
-                            <th>
-                                <a href="#" ng-click="sortType = 'companyName'; sortReverse = !sortReverse">companyName
-                                 <span ng-show="sortType == 'companyName' && !sortReverse" class="fa fa-caret-down"></span>
-                                 <span ng-show="sortType == 'companyName' && sortReverse" class="fa fa-caret-up"></span>
-                              </a>
-                            </th>
-                            <th>
-                                <a href="#" ng-click="sortType = 'offerNumber'; sortReverse = !sortReverse">offerNumber
-                                 <span ng-show="sortType == 'offerNumber' && !sortReverse" class="fa fa-caret-down"></span>
-                                 <span ng-show="sortType == 'offerNumber' && sortReverse" class="fa fa-caret-up"></span>
-                              </a>
-                            </th>
-                            <th>
-                                <a href="#" ng-click="sortType = 'userName'; sortReverse = !sortReverse">userName
-                                 <span ng-show="sortType == 'userName' && !sortReverse" class="fa fa-caret-down"></span>
-                                 <span ng-show="sortType == 'userName' && sortReverse" class="fa fa-caret-up"></span>
-                              </a>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="offer in offers | limitTo:size|   orderBy:sortType:sortReverse">
-                            <td>{{offer.id}}</td>
-                            <td>{{offer.productCode}}</td>
-                            <td>{{offer.lastEdition}}</td>
-                            <td>{{offer.companyName}}</td>
-                            <td>{{offer.offerNumber}}</td>
-                            <td>{{offer.userName}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6">
-                <p class="count">{{currentPage*size-size+1}}-{{currentPage*size}} items of {{recordsAmount}}</p>
-            </div>
-            <div class="col-xs-6 pull-right">
-                <ul uib-pagination items-per-page="size" total-items="recordsAmount" ng-model="currentPage"  ng-change="pageChanged()"></ul>
-            </div>
-        </div>
-        
-         
-    </div>
-    </div>
-    </div>
-    <script src="js/lib/angular.min.js"></script>
-    <script src="js/lib/ui-bootstrap-tpls-2.2.0.min.js"></script>
-    <!-- <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.js"></script> -->
-    <script src="js/app.js"></script>
+<body>
+  <h1>sdssss</h1>
 </body>
-
 </html>
